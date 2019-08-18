@@ -284,6 +284,7 @@
   align-items: center; }
   .footer-bar .layui-container {
     margin-top: 0;
+    margin-bottom: 0;
     text-align: right; }
     .footer-bar .layui-container p {
       font-family: 'Ubuntu Mono', monospace;
@@ -301,4 +302,5 @@ body {
   background: #9c8491; }
 
 .layui-container {
-  margin-top: 30px; }
+  margin-top: 30px;
+  margin-bottom: 30px; }
