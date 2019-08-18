@@ -1,0 +1,11 @@
+include ../component/ali_icon.pug
+mixin Card(title,icon)
+  .card
+    if title
+      .card-header
+        if icon
+          +Icon(icon)
+          h3= title
+    .card-body
+      block
+

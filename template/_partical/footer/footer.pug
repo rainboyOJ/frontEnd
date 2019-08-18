@@ -1,0 +1,13 @@
+include ../component/ali_icon.pug
+.footer-bar
+  .layui-container
+    .layui-row
+      p 
+        +Icon('git')
+        | #{siteName}
+        | power by:
+        a(href=OJ_INFO.repositories) #{OJ_INFO.name}
+      p 
+        +Icon('author')
+        | author:
+        a(href=Author.link) #{Author.name}

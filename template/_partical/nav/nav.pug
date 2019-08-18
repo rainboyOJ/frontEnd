@@ -1,0 +1,43 @@
+- 
+  var menuList = [
+    ['problem','iconfont-iconmaineditkaobei','/problem'],
+    ['rank','icon_paihang-xian','/rank'],
+    ['bbs','bbs','/bbs'],
+    ['contest','bisai','/contest'],
+  ];
+  var subMenuList = [
+    ['tags','biaoqian','javascript:return false;',1],
+    ['battle','zhandouzuozhan','javascript:return false;',1],
+    ['random','bisai','javascript:return false;',1],
+    ['task','bisai','javascript:return false;',1],
+    ['history','tijiao','javascript:return false;',1],
+    ['help','bangzhu','/help',0],
+  ]
+include ../component/ali_icon.pug
+include ../component/layui-icon.pug
+mixin navItem(L)
+  li.layui-nav-item
+    a(href=L[2])
+      +Icon(L[1])
+      = L[0]
+ul.layui-nav
+  each L in menuList
+    +navItem(L)
+  li.layui-nav-item
+    a(href="")
+      +Icon('zengqiang')
+      | other
+    dl.layui-nav-child
+      each L in subMenuList
+        dd
+          a(href=L[2],style={opacity: L[3] ? 0.2 : 1})
+            +Icon(L[1])
+            = L[0]
+  li.layui-nav-item
+    a(href="")
+      img.layui-nav-img(src="/images/war3/Wc3BTNPeon.png")
+    dl.layui-nav-child
+      dd
+        a(href="javascript:;") info
+      dd
+        a(href="javascript:;") logout

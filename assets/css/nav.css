@@ -1,0 +1,39 @@
+.nav-panel {
+  background: #002a32;
+  border-bottom: 1px solid rgba(47, 179, 234, 0.3);
+  box-shadow: 1px 1px 1px rgba(47, 179, 234, 0.2);
+  display: flex;
+  padding: 0 50px;
+  justify-content: space-between; }
+  .nav-panel .layui-nav {
+    background: transparent;
+    text-align: right;
+    border-radius: 0; }
+    .nav-panel .layui-nav a {
+      font-family: "Bungee", cursive;
+      color: #00d6d6; }
+    .nav-panel .layui-nav .layui-nav-child {
+      border: none;
+      background: #002a32; }
+      .nav-panel .layui-nav .layui-nav-child dd > a {
+        font-family: "Bungee", cursive;
+        color: #00d6d6; }
+        .nav-panel .layui-nav .layui-nav-child dd > a:hover {
+          background: rgba(0, 150, 217, 0.6); }
+  .nav-panel a {
+    display: flex; }
+    .nav-panel a .oj-brand {
+      padding-left: 20px; }
+  .nav-panel .layui-nav-item a {
+    font-size: 1rem; }
+    .nav-panel .layui-nav-item a .layui-icon {
+      transition: transform 0.5s ease; }
+    .nav-panel .layui-nav-item a:hover .layui-icon {
+      display: inline-block;
+      transform: rotate(180deg); }
+    .nav-panel .layui-nav-item a span {
+      margin-right: 5px; }
+    .nav-panel .layui-nav-item a:hover {
+      color: #2fb3ea; }
+    .nav-panel .layui-nav-item a .layui-nav-img {
+      border-radius: 0; }

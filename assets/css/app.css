@@ -1,0 +1,304 @@
+.login-background {
+  height: 200px;
+  background: url("../images/background/war3-background.jpg");
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  z-index: -1;
+  top: 0; }
+
+.login-video-background {
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  z-index: -1;
+  top: 0; }
+  .login-video-background video {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: fill; }
+
+.login-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  flex-direction: column; }
+  .login-panel .logo {
+    margin: 20px 0px;
+    font-size: 2.5em; }
+    .login-panel .logo .oj-brand img {
+      height: 3em;
+      width: 3em; }
+    .login-panel .logo .oj-brand h2 {
+      font-size: 2em;
+      line-height: 2em; }
+  .login-panel .login-title, .login-panel .login-panel-child {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 600px; }
+  .login-panel .login-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px; }
+    .login-panel .login-title fieldset {
+      border: none;
+      padding: 0;
+      border-top: 1px solid #eee; }
+      .login-panel .login-title fieldset legend {
+        padding: 0 10px;
+        margin-left: 20px;
+        font-size: 18px;
+        font-weight: 300; }
+  .login-panel .login-panel-child input, .login-panel .login-panel-child .layui-form-switch, .login-panel .login-panel-child .layui-form-checkbox, .login-panel .login-panel-child textarea, .login-panel .login-panel-child .layui-input {
+    background: transparent;
+    color: #fff; }
+  .login-panel .login-panel-child .layui-form-checkbox i {
+    color: transparent; }
+  .login-panel .login-panel-child .layui-form-checked i {
+    color: #5fb878; }
+  .login-panel .login-panel-child .layui-form-label {
+    background: rgba(0, 0, 0, 0.5); }
+  .login-panel .login-panel-child .layui-anim {
+    background: rgba(0, 42, 50, 0.9); }
+  .login-panel .login-panel-child input::placeholder, .login-panel .login-panel-child .layui-word-aux {
+    color: #00d6d6 !important; }
+  .login-panel .login-panel-child .captcha {
+    display: flex;
+    align-items: center; }
+    .login-panel .login-panel-child .captcha .captcha-code {
+      background: #fff; }
+  .login-panel span.message-info {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #999; }
+    .login-panel span.message-info:hover {
+      color: #fff; }
+
+.nav-panel {
+  background: #002a32;
+  border-bottom: 1px solid rgba(47, 179, 234, 0.3);
+  box-shadow: 1px 1px 1px rgba(47, 179, 234, 0.2);
+  display: flex;
+  padding: 0 50px;
+  justify-content: space-between; }
+  .nav-panel .layui-nav {
+    background: transparent;
+    text-align: right;
+    border-radius: 0; }
+    .nav-panel .layui-nav a {
+      font-family: "Bungee", cursive;
+      color: #00d6d6; }
+    .nav-panel .layui-nav .layui-nav-child {
+      border: none;
+      background: #002a32; }
+      .nav-panel .layui-nav .layui-nav-child dd > a {
+        font-family: "Bungee", cursive;
+        color: #00d6d6; }
+        .nav-panel .layui-nav .layui-nav-child dd > a:hover {
+          background: rgba(0, 150, 217, 0.6); }
+  .nav-panel a {
+    display: flex; }
+    .nav-panel a .oj-brand {
+      padding-left: 20px; }
+  .nav-panel .layui-nav-item a {
+    font-size: 1rem; }
+    .nav-panel .layui-nav-item a .layui-icon {
+      transition: transform 0.5s ease; }
+    .nav-panel .layui-nav-item a:hover .layui-icon {
+      display: inline-block;
+      transform: rotate(180deg); }
+    .nav-panel .layui-nav-item a span {
+      margin-right: 5px; }
+    .nav-panel .layui-nav-item a:hover {
+      color: #2fb3ea; }
+    .nav-panel .layui-nav-item a .layui-nav-img {
+      border-radius: 0; }
+
+.card {
+  background: #2d2d2d;
+  opacity: 0.9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 1px rgba(47, 179, 234, 0.2);
+  border-radius: 3px;
+  margin-bottom: 10px; }
+  .card .card-header {
+    color: #D5D4D4;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(9, 74, 103, 0.3); }
+    .card .card-header span {
+      color: #d94020;
+      margin-right: 5px;
+      font-size: 1.1rem;
+      background: #ffc33e;
+      padding: 1px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 2px;
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
+    .card .card-header h3 {
+      font-weight: 700;
+      font-size: 1.1rem; }
+  .card .card-body {
+    color: #D5D4D4;
+    padding: 20px; }
+
+.slime-icon {
+  display: inline-block; }
+
+.slime-icon-normal {
+  height: 50px;
+  width: 50px; }
+
+.slime-icon-small {
+  height: 20px;
+  width: 20px; }
+
+.slime-icon-large {
+  height: 75px;
+  width: 75px; }
+
+.oj-brand {
+  display: flex;
+  align-items: center;
+  color: #00d6d6;
+  text-shadow: -1px 0 rgba(9, 74, 103, 0.3), 0 1px rgba(9, 74, 103, 0.3), 1px 0 rgba(9, 74, 103, 0.3), 0 -1px rgba(9, 74, 103, 0.3), 4px 4px 5px rgba(0, 0, 0, 0.5); }
+  .oj-brand img {
+    height: 50px;
+    width: 50px;
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7)); }
+  .oj-brand h2 {
+    font-family: 'Bungee', cursive;
+    font-size: 35px;
+    line-height: 50px;
+    margin-left: 10px; }
+
+/* vietnamese */
+@font-face {
+  font-family: 'Bungee';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Bungee"), local("Bungee-Regular"), url(/font2/N0bU2SZBIuF2PU_0AnR1Gd8.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB; }
+
+/* latin-ext */
+@font-face {
+  font-family: 'Bungee';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Bungee"), local("Bungee-Regular"), url(/font2/N0bU2SZBIuF2PU_0A3R1Gd8.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+/* latin */
+@font-face {
+  font-family: 'Bungee';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Bungee"), local("Bungee-Regular"), url(/font2/N0bU2SZBIuF2PU_0DXR1.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url(/font2/KFOjCneDtsqEr0keqCMhbCc3CsTKlA.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+/* cyrillic */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url(/font2/KFOjCneDtsqEr0keqCMhbCc-CsTKlA.woff2) format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+
+/* greek-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url(/font2/KFOjCneDtsqEr0keqCMhbCc2CsTKlA.woff2) format("woff2");
+  unicode-range: U+1F00-1FFF; }
+
+/* greek */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url(/font2/KFOjCneDtsqEr0keqCMhbCc5CsTKlA.woff2) format("woff2");
+  unicode-range: U+0370-03FF; }
+
+/* latin-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url(/font2/KFOjCneDtsqEr0keqCMhbCc0CsTKlA.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+/* latin */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url(/font2/KFOjCneDtsqEr0keqCMhbCc6CsQ.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+.main-background {
+  background: url("/assets/images/background/war3-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: blur(2px); }
+  .main-background:hover {
+    filter: blur(0px); }
+
+.footer-bar {
+  background: #002a32;
+  height: 25px;
+  width: 100%;
+  color: #00d6d6;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center; }
+  .footer-bar .layui-container {
+    margin-top: 0;
+    text-align: right; }
+    .footer-bar .layui-container p {
+      font-family: 'Ubuntu Mono', monospace;
+      background: #303030;
+      display: inline-block;
+      border: 1px solid #231f20;
+      padding: 3px 5px;
+      margin: 0 20px; }
+      .footer-bar .layui-container p span {
+        margin-right: 5px; }
+      .footer-bar .layui-container p a {
+        color: #0096d9; }
+
+body {
+  background: #9c8491; }
+
+.layui-container {
+  margin-top: 30px; }

@@ -1,10 +1,5 @@
-# WARIII Online Judge 前端
+# Slime Online Judge FrontEnd
 
-
-
-## 作者:Rainboy(Rainboylvx)
-
-![Rainboy](https://github.com/rainboylvx.png)
 
 ## 感谢
 

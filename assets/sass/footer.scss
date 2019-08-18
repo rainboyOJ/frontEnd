@@ -1,0 +1,30 @@
+.footer-bar {
+    background: $navBackgroundColor;
+    height: 25px;
+    width: 100%;
+    color:$navLinkTextColor;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+
+    .layui-container{
+        margin-top: 0;
+        text-align: right;
+
+        p {
+            font-family: 'Ubuntu Mono', monospace;
+            background: $footerItemBackground;
+            display: inline-block;
+            border: $footerItemBorder;
+            padding: 3px 5px;
+            span {
+                margin-right: 5px;
+            }
+            a {
+                color:$Blue2;
+            }
+            margin:0 20px;
+        }
+    }
+}

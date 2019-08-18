@@ -1,0 +1,81 @@
+.login-background {
+  height: 200px;
+  background: url("../images/background/war3-background.jpg");
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  z-index: -1;
+  top: 0; }
+
+.login-video-background {
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  z-index: -1;
+  top: 0; }
+  .login-video-background video {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: fill; }
+
+.login-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  flex-direction: column; }
+  .login-panel .logo {
+    margin: 20px 0px;
+    font-size: 2.5em; }
+    .login-panel .logo .oj-brand img {
+      height: 3em;
+      width: 3em; }
+    .login-panel .logo .oj-brand h2 {
+      font-size: 2em;
+      line-height: 2em; }
+  .login-panel .login-title, .login-panel .login-panel-child {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 600px; }
+  .login-panel .login-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px; }
+    .login-panel .login-title fieldset {
+      border: none;
+      padding: 0;
+      border-top: 1px solid #eee; }
+      .login-panel .login-title fieldset legend {
+        padding: 0 10px;
+        margin-left: 20px;
+        font-size: 18px;
+        font-weight: 300; }
+  .login-panel .login-panel-child input, .login-panel .login-panel-child .layui-form-switch, .login-panel .login-panel-child .layui-form-checkbox, .login-panel .login-panel-child textarea, .login-panel .login-panel-child .layui-input {
+    background: transparent;
+    color: #fff; }
+  .login-panel .login-panel-child .layui-form-checkbox i {
+    color: transparent; }
+  .login-panel .login-panel-child .layui-form-checked i {
+    color: #5fb878; }
+  .login-panel .login-panel-child .layui-form-label {
+    background: rgba(0, 0, 0, 0.5); }
+  .login-panel .login-panel-child .layui-anim {
+    background: transparent; }
+  .login-panel span.message-info {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #999; }
+    .login-panel span.message-info:hover {
+      color: #fff; }

@@ -1,0 +1,57 @@
+@import "./color.scss";
+.nav-panel {
+    background: $navBackgroundColor;
+    border-bottom: 1px solid rgba($color: $Blue, $alpha: 0.3);
+    box-shadow: $slimeShadow;
+    display: flex;
+    padding: 0 50px;
+    justify-content: space-between;
+    .layui-nav {
+        background: transparent;
+        text-align: right;
+        border-radius: 0;
+        a {
+            font-family: $navFontfamily;
+            color: $navLinkTextColor;
+        }
+        .layui-nav-child{
+            border:none;
+            background: $navBackgroundColor;
+            dd>a {
+                font-family: $navFontfamily;
+                color: $navLinkTextColor;
+                &:hover {
+                    background: $navChildLink_Hover_BG;
+                }
+            }
+        }
+    }
+    a {
+        display: flex;
+        .oj-brand {
+            padding-left:20px;
+        }
+    }
+    .layui-nav-item a {
+        font-size: 1rem;
+        .layui-icon {
+            transition: transform 0.5s ease;
+        }
+        &:hover {
+            .layui-icon{
+                display: inline-block;
+                transform: rotate(180deg);
+            }
+        }
+        span {
+            margin-right: 5px;
+        }
+        &:hover {
+            color: $Blue;
+        }
+
+        .layui-nav-img {
+            border-radius: 0;
+        }
+    }
+}

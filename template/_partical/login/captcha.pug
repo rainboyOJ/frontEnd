@@ -1,0 +1,6 @@
+.layui-form-item.captcha
+  label.layui-form-label 验证码
+  .layui-input-inline
+    input.layui-input(type='text' name='captcha' required='' lay-verify='required' placeholder='请输入验证码' autocomplete='off')
+  .layui-form-mid.captcha-code
+    img(src='/captcha' onclick="this.src='/captcha?'+Math.random()")

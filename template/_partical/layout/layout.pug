@@ -1,0 +1,12 @@
+include ../../global-config.pug
+doctype html
+html
+    head
+        title Example
+        include ../head/head.pug
+        block head
+    body
+      block content
+      script(src=jquery)
+      script(src="/layui/layui.js")
+      block script

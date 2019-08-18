@@ -1,0 +1,28 @@
+.oj-brand {
+    display: flex;
+    align-items: center;
+
+    //color: #0b4c69;
+    color:$navBrandTextColor;
+    $border-color:rgba($Blue3, .3);
+    text-shadow: -1px 0 $border-color,
+    0 1px $border-color,
+    1px 0 $border-color,
+    0 -1px $border-color,
+    4px 4px 5px rgba(0, 0, 0, .5);;
+
+    img {
+        $size:50px;
+        height: $size;
+        width: $size;
+        filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    }
+
+    h2 {
+        font-family: 'Bungee', cursive;
+        font-size:35px;
+        line-height: 50px;
+        margin-left: 10px;
+        //transform: translateY(10%);
+    }
+}
