@@ -8,5 +8,9 @@ html
     body
       block content
       script(src=jquery)
+      script(src=axios_cdn)
       script(src="/layui/layui.js")
+      script.
+          layui.config({ base: '/js/' })
+      block layout_app_script
       block script

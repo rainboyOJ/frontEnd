@@ -1,0 +1,58 @@
+extends ../_partical/layout/layout.pug
+include ../_partical/card/card.pug
+include ../_partical/component/icon-avatar.pug
+include ../_partical/component/tooltip.pug
+include ../_partical/component/layui-icon.pug
+
+block head
+  link(rel="stylesheet", href=codemirror.css)
+  link(rel="stylesheet", href=codemirror.theme)
+  link(rel="stylesheet", href="/markdown/github-markdown.css")
+  link(rel="stylesheet", href="/markdown/markdown-r.css")
+  link(rel="stylesheet", href=prism.css)
+block content
+  include ../_partical/nav/nav-panel.pug
+  include ../_partical/component/main-background.pug
+  div.layui-container
+    div.layui-row.layui-col-space30
+      div.layui-col-md6.layui-col-sm6
+        div.main
+          block main
+            +Card("测试数据","shouhui")(class="card-data-download")
+              .problemList
+                table.tableList
+                  thead
+                    tr
+                      th 输入文件
+                      th 输出文件
+                  tbody
+                    each item in data_list || []
+                      tr
+                        td= item[0]
+                        td= item[1]
+      div.layui-col-md6.layui-col-sm6
+        div.main
+          block main
+            +Card("全部文件","shouhui")(class="card-data-download")
+              .problemList
+                table.tableList
+                  thead
+                    tr
+                      th 文件名
+                      th 大小
+                      th 下载
+                  tbody
+                    each item in flist_with_size || []
+                      tr
+                        td= item[0]
+                        td= item[1]
+                        td
+                          a(href=`/problem/${pid}/testdata/download/${item[0]}`)
+                            +Licon("download-circle")
+              div(style="padding:20px;text-align:center;")
+                a.layui-btn.war3-blue-button(href=`/problem/${pid}/testdata/download`) 打包下载
+  include ../_partical/footer/footer.pug
+block layout_app_script
+  script.
+    layui.use('element')
+block script

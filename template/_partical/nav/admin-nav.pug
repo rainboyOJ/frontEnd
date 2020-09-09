@@ -1,0 +1,31 @@
+include ../component/ali_icon.pug
+include ../component/layui-icon.pug
+mixin navItem(L)
+  li.layui-nav-item
+    a(href=L[2])
+      +Icon(L[1])
+      = L[0]
+ul.layui-nav.layui-nav-tree.layui-nav-side
+  li.layui-nav-item
+    a(href="javascript:;") 用户列表
+  li.layui-nav-item
+    a(href="javascript:;") 题目管理
+    dl.layui-nav-child
+      dd
+        a(href="javascript:;") 题目列表
+        a(href="/admin/problem/create") 题目创建
+  li.layui-nav-item
+    a(href="javascript:;") 比赛管理
+    dl.layui-nav-child
+      dd
+        a(href="javascript:;") 比赛列表
+        a(href="javascript:;") 比赛创建
+  li.layui-nav-item
+    a(href="/admin/invitecode") 邀请码
+  li.layui-nav-item
+    a(href="javascript:;")
+      img.layui-nav-img(src="/images/war3/Wc3BTNPeon.png")
+      | 管理员
+    dl.layui-nav-child
+      dd
+        a(href="/admin/logout") logout

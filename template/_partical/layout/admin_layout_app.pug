@@ -1,0 +1,13 @@
+extends layout.pug
+block content
+  include ../nav/admin-nav.pug
+  include ../component/main-background.pug
+  //-include ../login/login-video-background.pug
+  div.layui-container
+    div.layui-row.layui-col-space10
+      div.layui-col-md12.layui-col-sm12
+        div.main
+          block main
+  include ../footer/footer.pug
+block layout_app_script
+  script(src="/js/nav.js")

@@ -1,2 +1,31 @@
 include ../card/card.pug
 +Card('提交代码','daima')
+  form.subCode-form#subCode-form(action='')
+    div.init_val(style={display:"none"})
+      input#_pid(type="text" name="_pid" value=problem._id  readOnly)
+      input#pid(type="number" name="pid" value=problem.pid  readOnly)
+    label.label-name 语言
+    .switch-field
+      input#lang_cpp(type="radio" name="lang" value="cpp" checked="")
+      label(for="lang_cpp") G++
+      input#lang_py(type="radio" name="lang" value="py")
+      label(for="lang_py") Python3
+    label.label-name IO
+    .switch-field
+      input#auto_io_yes(type="radio" name="auto_io" value=1 checked="")
+      label(for="auto_io_yes") 自动
+      input#auto_io_no(type="radio" name="auto_io" value=0)
+      label(for="auto_io_no") 手动
+    button.layui-btn.war3-blue-button.right-button#subCode(disabled) 提交
+        //-.layui-form-item
+          //-label.layui-form-label 语言
+          //-.layui-input-block
+            //-input(type="radio" name="lang" value="cpp" title="G++")
+            //-input(type="radio" name="lang" value="py" title="Python3" checked="")
+          //-label.layui-form-label 自动IO
+          //-.layui-input-inline(style={width:"auto"})
+            //-input(type="checkbox" name="auto_io" lay-skin="switch")
+          //-.layui-input-inline(style={width:"auto",float:"right"})
+            //-button.layui-btn.war3-blue-button(lay-submit='' lay-filter='formDemo' style={}) 提交
+  div.subCode
+    textarea#code.form-control(name="code")

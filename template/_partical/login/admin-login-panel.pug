@@ -1,0 +1,21 @@
+.login-panel
+  .logo
+    include ../component/brandLogo.pug
+  .login-title
+    fieldset
+      legend
+        h2 管理员登录
+  div.login-panel-child
+    form.layui-form(action='').layui-form-pane
+      .layui-form-item
+        label.layui-form-label 帐号
+        .layui-input-block
+          input.layui-input(type='text' name='username' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off')
+      .layui-form-item
+        label.layui-form-label 密码
+        .layui-input-block
+          input.layui-input(type='password' name='password' required='' lay-verify='required' placeholder='请输入密码' autocomplete='off')
+      include ./captcha.pug
+      .layui-form-item
+        .layui-input-block
+          button.layui-btn(lay-submit='' lay-filter='formDemo') 提交

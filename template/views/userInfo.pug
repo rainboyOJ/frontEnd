@@ -1,0 +1,49 @@
+extends ../_partical/layout/layout_app.pug
+include ../_partical/card/card.pug
+include ../_partical/component/ali_icon.pug
+include ../_partical/component/layui-icon.pug
+block main
+  div
+    +Card('用户信息','i')
+      .layui-form-pane.login-panel.login-panel-for-userinfo
+        .login-panel-child
+          .layui-form-item
+            label.layui-form-label 真实姓名
+            .layui-input-block
+              input.layui-input(type='text' name='realname' required='' lay-verify='required' value=realname autocomplete='off' readonly)
+          .layui-form-item
+            label.layui-form-label 帐号
+            .layui-input-block
+              input.layui-input(type='text' name='username' required='' lay-verify='required' maxlength="10" value=username autocomplete='off')
+          .layui-form-item
+            label.layui-form-label 邮箱
+            .layui-input-block
+              input.layui-input(type='text' name='email' required='' lay-verify='required' value=email  autocomplete='off')
+          .layui-form-item.layui-form-text
+            label.layui-form-label 个性签名
+            .layui-input-block
+              textarea.layui-textarea(name='intro' maxlength="100" id="intro")
+              script.
+                document.getElementById("intro").value = "123141231"
+
+block slide
+  div.userinfo-avatar
+    +Card
+      .avatar
+        img(src= email2avatar(user.email))
+      .extra-content
+        a 
+          +Licon('ok')
+          | 通过#{user.passed.length}题目
+        a 
+          +Licon('rate-solid')
+          | 积分 #{user.rank}
+      .extra-content
+        a 
+          | #{user.passedCount} /#{user.postedCount}
+        a 
+          | 通过率 #{user.postRate}
+
+block script
+  script.
+    layui.use('http')

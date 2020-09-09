@@ -1,0 +1,29 @@
+extends ../_partical/layout/layout.pug
+block content
+  include ../_partical/login/login-video-background.pug
+  //-include ../_partical/login/login-panel.pug
+  .login-panel(style={"justify-content":"normal"})
+    .logo
+      include ../_partical/component/brandLogo.pug
+    .login-title
+      fieldset
+        legend
+          h2(style={"font-size":"2em"}) 404
+    div.login-panel-child
+      div.content-404
+        p #{content404 || "404 NOT FOUND"}
+    a.go-home-button(href="/") HOME
+block script
+  //-script.
+    //-layui.use(['http','form','message'],function(){
+      //-var form = layui.form;
+      
+      //-//监听提交
+      //-form.on('submit(formDemo)', function(data){
+        //-let msg = layui.message.alert
+        //-//-layer.msg(JSON.stringify(data.field));
+        //-layui.http.user_login(data.field).then( ()=>{
+        //-})
+        //-return false;
+      //-});
+    //-});

@@ -1,0 +1,17 @@
+extends ../../_partical/layout/admin_layout_app.pug
+include ../../_partical/card/card.pug
+include ../../_partical/component/ali_icon.pug
+block main
+  div
+    +Card('天梯/前5','icon_paihang-xian')
+      p card body
+    +Card('用户最近7天的提交','zhaohuanshou2')
+      p card body
+      p= markdown
+      p= markdown
+    +Card('最新消息','bbs')
+      p card body
+      p card body
+      p card body
+      p card body
+      p card body

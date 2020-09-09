@@ -1,0 +1,23 @@
+.code-container {
+    position: relative;
+    a.code-copy-button {
+        position: absolute;
+        top:10px;
+        right: 20px;
+        display: block;
+        cursor: pointer;
+        z-index:999;
+        &:hover {
+            .tooltip .q {
+                color: darken($color: #ffd100, $amount: 20) !important;
+            }
+        }
+        &:active {
+            top:12px;
+            .tooltip .q {
+                color: darken($color: #ffd100, $amount: 30) !important;
+                text-shadow:0px 1px 0px #2f6627;
+            }
+        }
+    }
+}

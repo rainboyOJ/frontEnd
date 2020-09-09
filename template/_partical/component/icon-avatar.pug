@@ -1,0 +1,13 @@
+mixin icon_avatar(url,uid)
+  .icon-cell
+    .iconlarge
+      ins(style={"background-image": `url("${url}")`})
+      del
+      a(href=`/userinfo?uid=${uid}`)
+
+mixin icon_avatar_medium(url,uid)
+  .icon-cell
+    .iconmedium
+      ins(style={"background-image": `url("${url}")`})
+      del
+      a(href=`/userinfo${uid == _id ? "":uid}`)

@@ -1,0 +1,50 @@
+$borderColor:#b7a2a2;
+.pagenation {
+    display: inline-flex;
+    vertical-align: middle;
+    border: 1px solid $borderColor;
+    border-clip:border-box;
+    overflow: hidden;
+    border-radius: 4px 4px 4px 4px;
+    a {
+        font-weight: bolder;
+        color: #eee;
+        //border: 1px solid #fff;
+        position: relative;
+        vertical-align: middle;
+        line-height: 1;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: 0 0;
+        padding: .92857143em 1.14285714em;
+        padding-top: 0.928571em;
+        padding-right: 1.14286em;
+        padding-bottom: 0.928571em;
+        padding-left: 1.14286em;
+        text-transform: none;
+        font-weight: 400;
+        -webkit-transition: background .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
+        transition: background .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
+        transition: background .1s ease,box-shadow .1s ease,color .1s ease;
+        transition: background .1s ease,box-shadow .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
+        border-right:1px solid $borderColor;
+        border-clip:border-box;
+        &:last-child {
+            border: none;
+        }
+        &.active {
+            background-color: #161616;
+            color: #ffd100;
+        }
+        &.disabled {
+            color: #bbb;
+        }
+    }
+}

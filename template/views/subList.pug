@@ -1,0 +1,54 @@
+extends ../_partical/layout/layout.pug
+include ../_partical/card/card.pug
+include ../_partical/component/icon-avatar.pug
+block content
+  include ../_partical/nav/nav-panel.pug
+  include ../_partical/component/main-background.pug
+  //-include ../login/login-video-background.pug
+  div.layui-container
+    div.layui-row.layui-col-space10
+      div.layui-col-md12.layui-col-sm12
+        div.main
+          block main
+            +Card
+              - var baseUrl ='/submissions?page='
+              include ../_partical/component/pagenation.pug
+              .problemList
+                table.tableList
+                  //-colgroup
+                    //-col(width="150")
+                    //-col(width="200")
+                    //-col
+                  thead
+                    tr
+                      th 提交者
+                      th 题目
+                      td 语言
+                      th 状态
+                      th 分数
+                      th 总时间
+                      th 总内存
+                      th 提交时间
+                  tbody
+                    each sub in subs|| []
+                      tr
+                        td(style="width:48px;")
+                          +icon_avatar_medium(email2avatar(sub.uid.email),sub.uid._id)
+                        td
+                          a(href="/problem/"+sub.pid.pid) #{sub.pid.title}
+
+                        td(style="width:48px;")= sub.lang
+                        td(style="width:120px;")
+                          a(href=`/submission/${sub._id}`)= sub.status || "Unkown"
+                        td=  sub.score[1] ? `${sub.score[0]}/${sub.score[1]}` : ""
+                        td= `${sub.total_time} ms`
+                        td= `${(sub.total_memory/1024/1024).toFixed(2)} mb`
+                        td(style="width:180px;")= sub.create_at_format
+
+              .div(style="margin-top:30px;")
+                include ../_partical/component/pagenation.pug
+  include ../_partical/footer/footer.pug
+block layout_app_script
+  script.
+    layui.use('element')
+block script

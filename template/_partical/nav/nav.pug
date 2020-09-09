@@ -1,16 +1,16 @@
 - 
   var menuList = [
-    ['problem','iconfont-iconmaineditkaobei','/problem'],
-    ['rank','icon_paihang-xian','/rank'],
-    ['bbs','bbs','/bbs'],
+    ['problem','iconfont-iconmaineditkaobei','/problems'],
+    ['rank','icon_paihang-xian','/ranklist'],
     ['contest','bisai','/contest'],
+    ['SUB','tijiao','/submissions'],
   ];
   var subMenuList = [
     ['tags','biaoqian','javascript:return false;',1],
     ['battle','zhandouzuozhan','javascript:return false;',1],
     ['random','bisai','javascript:return false;',1],
     ['task','bisai','javascript:return false;',1],
-    ['history','tijiao','javascript:return false;',1],
+    ['bbs','bbs','/bbs'],
     ['help','bangzhu','/help',0],
   ]
 include ../component/ali_icon.pug
@@ -35,9 +35,11 @@ ul.layui-nav
             = L[0]
   li.layui-nav-item
     a(href="javascript:;")
-      img.layui-nav-img(src="/images/war3/Wc3BTNPeon.png")
+      img.layui-nav-img(src= email2avatar(email))
     dl.layui-nav-child
       dd
-        a(href="javascript:;") info
+        a(href="javascript:return false;",style={opacity:0.2}) #{realname}
       dd
-        a(href="javascript:;") logout
+        a(href="/userinfo") info
+      dd
+        a(href="/logout") logout

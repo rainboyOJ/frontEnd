@@ -1,0 +1,143 @@
+extends ../_partical/layout/layout.pug
+include ../_partical/card/card.pug
+include ../_partical/component/icon-avatar.pug
+include ../_partical/component/tooltip.pug
+
+block head
+  link(rel="stylesheet", href=codemirror.css)
+  link(rel="stylesheet", href=codemirror.theme)
+  link(rel="stylesheet", href="/markdown/github-markdown.css")
+  link(rel="stylesheet", href="/markdown/markdown-r.css")
+  link(rel="stylesheet", href=prism.css)
+block content
+  include ../_partical/nav/nav-panel.pug
+  include ../_partical/component/main-background.pug
+  include ../_partical/component/tooltip.pug
+  //-include ../login/login-video-background.pug
+  div.layui-container
+    div.layui-row.layui-col-space10
+      div.layui-col-md12.layui-col-sm12
+        div.main
+          block main
+            +Card
+              .problemList
+                table.tableList
+                  //-colgroup
+                    //-col(width="150")
+                    //-col(width="200")
+                    //-col
+                  thead
+                    tr
+                      th 提交者
+                      th 题目
+                      td 语言
+                      th 状态
+                      th 分数
+                      th 总时间
+                      th 总内存
+                      th 提交时间
+                  tbody
+                    tr
+                      td(style="width:48px;")
+                        +icon_avatar_medium(email2avatar(sub.uid.email),sub.uid._id)
+                      td
+                        a(href="/problem/"+sub.pid.pid) #{sub.pid.title}
+
+                      td#codeLanguage(style="width:48px;")= sub.lang
+                      td(style="width:120px;")= sub.status || "Unkown"
+                      td=  sub.score[1] ? `${sub.score[0]}/${sub.score[1]}` : ""
+                      td= `${sub.total_time} ms`
+                      td= `${(sub.total_memory/1024/1024).toFixed(2)} MB`
+                      td(style="width:180px;")= sub.create_at_format
+              .code-container(style="margin-top:20px;").CodeMirror-readonly
+                a#code-copy-button.code-copy-button
+                  +tooltip("复制")
+                textarea(readonly)#code
+                  | !{sub.code}
+            +Card
+              - if(sub.error)
+                +tooltip("错误信息如下:")
+                br
+                br
+                .markdown-body
+                  pre.language-text
+                    code
+                      | !{sub.error}
+              - else
+                .problemList
+                  table.tableList
+                    //-colgroup
+                      //-col(width="150")
+                      //-col(width="200")
+                      //-col
+                    thead
+                      tr
+                        th 编号
+                        th 结果
+                        td 时间
+                        th 内存
+                        th= ""
+                    tbody
+                      - 
+                        const RESULT_LIST_MEAN = {
+                        "-1" :"Wrong Answer"            ,
+                        "0" :"Accept"                   ,
+                        "1" :"Time Limit Exceeded"      ,
+                        "2" :"Real Time Limit Exceeded" ,
+                        "3" :"Memory Limit Exceeded"    ,
+                        "4" :"Runtime Error"            ,
+                        "5" :"System Error"             ,
+                        "6" :"SPJ Runtime Error"           
+                        }
+                      each item,index in sub.result
+                        tr
+                          td(style="width:100px;text-align:left;")= `测试点#${index+1}`
+                          td= `${RESULT_LIST_MEAN[item.result]}`
+                          td= `${item.cpu_time} ms`
+                          td= `${item.memory/1024} Kib`
+                          td(style="width:100px;")
+                            button.war3-blue-button.smalldownload 下载
+
+  include ../_partical/footer/footer.pug
+block layout_app_script
+  script.
+    layui.use('element')
+block script
+  script(async="" src=`${mathjax}?config=TeX-MML-AM_CHTML`)
+  script(src=codemirror.script)
+  each lang in codemirror.languages
+    script(src=lang)
+  script.
+    const mode_choose = { 'cpp':'text/x-c++src','py':'text/x-python' }
+    var lang = document.getElementById("codeLanguage").innerText
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+      mode: mode_choose[lang], 
+      lineNumbers: true,	//显示行号
+      theme: "blackboard",	//设置主题
+      lineWrapping: true,	//代码折叠
+      foldGutter: true,
+      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+      matchBrackets: true,	//括号匹配
+      readOnly: true,        //只读
+      cursorBlinkRate:0
+    });
+    //代码复制
+    layui.use('layer', function(){
+        function copyToClipboard(text) {
+          var dummy = document.createElement("textarea");
+            // to avoid breaking orgain page when copying more words
+            // cant copy when adding below this code
+            //-dummy.style.display = 'none'
+            document.body.appendChild(dummy);
+            //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+        }
+
+      $("a#code-copy-button").click( function(){
+        copyToClipboard(editor.getValue())
+        layer.tips('复制成功', this,{tips: 1}); 
+      })
+    })

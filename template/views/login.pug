@@ -4,4 +4,17 @@ block content
   //-include ./_partical/login-background.pug
   include ../_partical/login/login-panel.pug
 block script
-  script(src="/js/login-form.js")
+  //-script(src="/js/login-form.js")
+  script.
+    layui.use(['http','form','message'],function(){
+      var form = layui.form;
+      
+      //监听提交
+      form.on('submit(formDemo)', function(data){
+        let msg = layui.message.alert
+        //-layer.msg(JSON.stringify(data.field));
+        layui.http.user_login(data.field).then( ()=>{
+        })
+        return false;
+      });
+    });

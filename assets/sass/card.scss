@@ -2,8 +2,9 @@
 
 .card {
     background:$cardBackground;
-    opacity: 0.9;
-    border:1px solid rgba($color: #000000, $alpha: 0.1);
+    //opacity: 0.9;
+    border:1px solid;
+    border-color: $cardBoardColor;
     box-shadow: $slimeShadow;
     border-radius: 3px;
 
@@ -21,7 +22,7 @@
             font-size:1.1rem;
             background: rgba($color: $iconBackground, $alpha: 1);
             padding: 1px;
-            border:1px solid rgba($color: #000000, $alpha: 0.1);
+            border:1px solid $cardBoardColor;
             border-radius: 2px;
             box-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.2);
         }

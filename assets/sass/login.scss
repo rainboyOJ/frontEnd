@@ -1,4 +1,5 @@
 $backgroundColor:rgba(255,255,255,0.1);
+$backgroundColorHOVER:rgba(255,255,255,0.3);
 .login-background {
     height: 200px;
     background:url("../images/background/war3-background.jpg");
@@ -52,13 +53,45 @@ $backgroundColor:rgba(255,255,255,0.1);
             }
         }
     }
+    $WIDTH:600px;
+
+    .go-home-button {
+        font-family: 'Bungee', cursive;
+        font-weight: bolder;
+        width: $WIDTH;
+        margin-top: 10px;
+        padding: 0 20px;
+        display: inline-block;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background: $backgroundColor;
+        color: $navBrandTextColor;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        &:hover {
+            background-color:$backgroundColorHOVER;
+        }
+    }
+    .content-404 {
+        display: flex;
+        justify-content:center;
+        font-size:1.1rem;
+        font-family: 'Bungee', cursive;
+        font-weight: bolder;
+        color:#073707;
+    }
 
     .login-title,.login-panel-child {
         background: $backgroundColor;
         color:#fff;
         padding: 20px;
         border-radius: 5px;
-        width: 600px;
+        width: $WIDTH;
     }
 
     .login-title {
@@ -73,6 +106,8 @@ $backgroundColor:rgba(255,255,255,0.1);
                 margin-left: 20px;
                 font-size: 18px;
                 font-weight: 300;
+                font-family: 'Bungee', cursive;
+                color:$navBrandTextColor;
             }
         }
         margin-bottom: 10px;
@@ -121,4 +156,22 @@ $backgroundColor:rgba(255,255,255,0.1);
     }
 
 }
-
+.login-panel-for-userinfo {
+    position: relative;
+    .login-panel-child {
+        width: 100%;
+        background-color: transparent;
+        .layui-form-label{
+            background-color: rgba($color: #000, $alpha: 0.1);
+            border:none;
+            border-bottom:1px solid rgba($color: #fff, $alpha: 0.2);
+        }
+        input {
+            border: none;
+            font-size: 20px;
+        }
+        textarea {
+            border-color: rgba($color: #000000, $alpha: 0.2);
+        }
+    }
+}

@@ -1,4 +1,7 @@
 tmp.txt
+MathJax
 debug.sh
 stop_debug.sh
+*.swp
 html/
+CodeMirror

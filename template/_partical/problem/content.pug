@@ -1,3 +1,7 @@
 include ../card/card.pug
 +Card
-  p problem content
+  .problem-show
+    div.title
+      h1=`#${problem.pid}. ${problem.title}`
+    div.content.markdown-body
+      | !{problem.html_content}

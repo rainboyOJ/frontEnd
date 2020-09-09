@@ -3,4 +3,4 @@
   .layui-input-inline
     input.layui-input(type='text' name='captcha' required='' lay-verify='required' placeholder='请输入验证码' autocomplete='off')
   .layui-form-mid.captcha-code
-    img(src='/captcha' onclick="this.src='/captcha?'+Math.random()")
+    img(id="captcha",src='/captcha' onclick="this.src='/captcha?'+Math.random()")

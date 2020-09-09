@@ -1,0 +1,31 @@
+.problem-show .title {
+  text-align: center;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(76, 76, 76, 0.6); }
+
+.problem-show .markdown-body {
+  color: #fff; }
+  .problem-show .markdown-body h1, .problem-show .markdown-body h2, .problem-show .markdown-body h3, .problem-show .markdown-body h4, .problem-show .markdown-body h5, .problem-show .markdown-body h6 {
+    color: #fff; }
+  .problem-show .markdown-body h2 {
+    border-color: rgba(76, 76, 76, 0.5); }
+  .problem-show .markdown-body h2, .problem-show .markdown-body h3 {
+    margin: 2.3rem 0 !important; }
+  .problem-show .markdown-body pre.language-text div.line-numbers-wrapper {
+    display: none; }
+
+.subCode-control-panel {
+  position: relative; }
+  .subCode-control-panel .login-panel-child {
+    width: 100%;
+    background-color: transparent; }
+
+.problem-info .item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 10px 0;
+  border-bottom: 1px solid rgba(76, 76, 76, 0.5); }
+
+.card-data-download .card-body {
+  padding: 0; }

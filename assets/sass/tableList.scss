@@ -1,0 +1,28 @@
+.tableList {
+    text:center;
+    border-collapse:collapse;
+    width: 100%;
+    thead {
+        background: #161616;
+        tr {
+            th {
+                padding: 5px 0;
+            }
+        }
+    }
+    tr {
+        border-top: 1px solid #4c4c4c;
+        height:auto;
+        td {
+            font-size:18px;
+            padding: 5px 0;
+            text-align:center;
+            a {
+                color: #fff;
+                &:hover  {
+                    color: rgba($color: #fff, $alpha: 0.5);
+                }
+            }
+        }
+    }
+}

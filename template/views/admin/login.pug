@@ -1,0 +1,16 @@
+extends ../../_partical/layout/layout.pug
+block content
+  include ../../_partical/login/login-video-background.pug
+  include ../../_partical/login/admin-login-panel.pug
+block script
+  script.
+    layui.use(['http','form'],function(){
+      var http = layui.http ,form = layui.form
+      //监听提交
+      form.on('submit(formDemo)', function(data){
+        //-layer.msg(JSON.stringify(data.field));
+        http.admin_login(data.field).then( ()=>{
+        })
+        return false;
+      });
+    })

@@ -1,0 +1,27 @@
+//-分页
+//  一个用来 分割 pageNation的算法
+//  page new at page
+// pageCount total page count
+// total pageNation length
+include ./layui-icon.pug
+div(style="text-align:center;margin-bottom:30px")
+  .pagenation
+    - if(pagenation.page == 1)
+      a#page_prev(style="disabled")
+        +Licon("prev")
+    - else
+      a#page_prev(href=`${baseUrl}${pagenation.page-1}`)
+        +Licon("prev")
+    each item in pagenation.list
+      - if( item === '...')
+        a(style="disabled") #{item}
+      - else
+        a(href=`${baseUrl}${item}` class= (pagenation.page == item ?"active":"")) #{item}
+
+    - if(pagenation.page == pagenation.pageCount)
+      a#page_next(style="disabled")
+        +Licon("next")
+    - else
+      a#page_prev(href=`${baseUrl}${pagenation.page+1}`)
+        +Licon("next")
+

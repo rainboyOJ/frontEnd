@@ -1,0 +1,19 @@
+.tableList {
+  text: center;
+  border-collapse: collapse;
+  width: 100%; }
+  .tableList thead {
+    background: #161616; }
+    .tableList thead tr th {
+      padding: 5px 0; }
+  .tableList tr {
+    border-top: 1px solid #4c4c4c;
+    height: auto; }
+    .tableList tr td {
+      font-size: 18px;
+      padding: 5px 0;
+      text-align: center; }
+      .tableList tr td a {
+        color: #fff; }
+        .tableList tr td a:hover {
+          color: rgba(255, 255, 255, 0.5); }

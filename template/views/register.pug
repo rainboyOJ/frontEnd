@@ -3,5 +3,48 @@ extends ../_partical/layout/layout.pug
 block content
   include ../_partical/login/login-video-background.pug
   include ../_partical/login/reg-panel.pug
-  script(src="/layui/layui.js")
-  script(src="/js/login-form.js")
+block script
+  //-script(src="/js/login-form.js")
+  script.
+    layui.use(['http','form','message'],function(){
+      var form = layui.form;
+      
+      //监听提交
+      form.on('submit(formDemo)', function(data){
+        let msg = layui.message.alert
+        //-layer.msg(JSON.stringify(data.field));
+        //检查
+        let {realname,username,password,repassword,email,inviteCode,intro} = data.field
+        if(realname.length < 2 && realname.length >4){
+          msg("确保 [真实姓名] 长度在2,5之间!")
+          return false;
+        }
+        let username_reg  = /^[A-Za-z0-9_]{3,16}$/
+        let password_reg  = /^.{8,16}$/
+        let email_reg     = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+
+        if(!username_reg.test(username)){
+          msg("账号只能由字母,数字,下划线组成,长度3到16!")
+          return false
+        }
+        if( password !== repassword){
+          msg("两次输入的密码不一样!")
+          return false
+        }
+        if(!password_reg.test(password)){
+          msg("密码的长度8到16")
+          return false
+        }
+        if(!email_reg.test(email)){
+          msg("邮箱的格式不正确")
+          return false
+        }
+        if(intro.length == 0) data.field.intro = "这个人很懒,什么也没有写"
+
+        layui.http.user_register(data.field).then(function(data){
+          layui.message.alert(`注册成成功,3s后跳转到登录页面!`)
+          setTimeout(()=>window.location = '/login',3000)
+        })
+        return false;
+      });
+    });

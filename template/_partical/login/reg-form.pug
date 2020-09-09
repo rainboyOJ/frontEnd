@@ -2,39 +2,43 @@ form.layui-form(action='').layui-form-pane
   .layui-form-item
     label.layui-form-label 真实姓名
     .layui-input-inline
-      input.layui-input(type='text' name='title' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off')
+      input.layui-input(type='text' name='realname' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off')
     .layui-form-mid.layui-word-aux 很重要,请真实填写!
   .layui-form-item
     label.layui-form-label 帐号
     .layui-input-inline
-      input.layui-input(type='text' name='title' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off')
-    .layui-form-mid.layui-word-aux 数字,下划线,字符组成.长度至少6
+      input.layui-input(type='text' name='username' required='' lay-verify='required' maxlength="10" placeholder='请输入标题' autocomplete='off')
+    .layui-form-mid.layui-word-aux 数字,下划线,字符组成.长度至少3
   .layui-form-item
     label.layui-form-label 密码
     .layui-input-inline
-      input.layui-input(type='password' name='password' required='' lay-verify='required' placeholder='请输入密码' autocomplete='off')
-    .layui-form-mid.layui-word-aux 数字,下划线,字符组成.长度至少6
+      input.layui-input(type='password' name='password' required='' lay-verify='required' maxlength="100" placeholder='请输入密码' autocomplete='off')
+    .layui-form-mid.layui-word-aux 长度至少8
   .layui-form-item
     label.layui-form-label 重复密码
     .layui-input-inline
-      input.layui-input(type='password' name='password' required='' lay-verify='required' placeholder='请输入密码' autocomplete='off')
-    .layui-form-mid.layui-word-aux 数字,下划线,字符组成.长度至少6
+      input.layui-input(type='password' name='repassword' required='' lay-verify='required' maxlength="100" placeholder='请输入密码' autocomplete='off')
+    .layui-form-mid.layui-word-aux 长度至少8
   .layui-form-item
-    label.layui-form-label 种族
+    label.layui-form-label 邮箱
     .layui-input-inline
-      select(name='city' lay-verify='required')
-        option(value='0') 兽族(ORC)
-        option(value='1') 人族(HUM)
-        option(value='2') 不死(UD)
+      input.layui-input(type='text' name='email' required='' lay-verify='required' placeholder='和头像有关' autocomplete='off')
+  //-.layui-form-item
+    //-label.layui-form-label 种族
+    //-.layui-input-inline
+      //-select(name='city' lay-verify='required')
+        //-option(value='0') 兽族(ORC)
+        //-option(value='1') 人族(HUM)
+        //-option(value='2') 不死(UD)
     .layui-form-mid.layui-word-aux 将会影响界面显示
   .layui-form-item
     label.layui-form-label 邀请码
     .layui-input-inline
-      input.layui-input(type='text' name='title' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off')
+      input.layui-input(type='text' name='inviteCode' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off')
   .layui-form-item.layui-form-text
     label.layui-form-label 个性签名
     .layui-input-block
-      textarea.layui-textarea(name='desc' placeholder='请输入内容')
+      textarea.layui-textarea(name='intro' placeholder='请输入内容' maxlength="100")
   include ./captcha.pug
   .layui-form-item
     .layui-input-block

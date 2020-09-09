@@ -1,5 +1,49 @@
-extends ../_partical/layout/layout_app.pug
-block main
-  p main
-block slide
-  p slide
+extends ../_partical/layout/layout.pug
+include ../_partical/card/card.pug
+include ../_partical/component/ali_icon.pug
+block content
+  include ../_partical/nav/nav-panel.pug
+  include ../_partical/component/main-background.pug
+  //-include ../login/login-video-background.pug
+  div.layui-container
+    div.layui-row.layui-col-space10
+      div.layui-col-md12.layui-col-sm12
+        div.main
+          block main
+            +Card
+              - var baseUrl ='/problems?page='
+              include ../_partical/component/pagenation.pug
+              .problemList
+                table.tableList
+                  //-colgroup
+                    //-col(width="150")
+                    //-col(width="200")
+                    //-col
+                  thead
+                    tr
+                      th #
+                      th 编号
+                      th 题目名称
+                      th 通过
+                      th 提交
+                      th 通过率
+                  tbody
+                    each problem in problems || []
+                      tr
+                        td(style="width:48px;") 
+                          - if(problem.sub_status)
+                              div(style=`color:${problem.sub_status == 2 ? "#ffd100" : "red"};`)
+                                +Icon( problem.sub_status == 2 ? 'duihao' : 'cuohao')
+                        td= problem.pid
+                        td
+                          a(href=`/problem/${problem.pid}`) #{problem.title}
+                        td= problem.passed
+                        td= problem.posted
+                        td= 1
+              .div(style="margin-top:30px;")
+                include ../_partical/component/pagenation.pug
+  include ../_partical/footer/footer.pug
+block layout_app_script
+  script.
+    layui.use('element')
+block script

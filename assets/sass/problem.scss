@@ -1,0 +1,49 @@
+$FONTCOLOR:#fff;
+$borderColor:#4c4c4c;
+.problem-show {
+    .title {
+        text-align: center;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba($color:$borderColor,$alpha:0.6);
+    }
+    .markdown-body {
+        color: $FONTCOLOR;
+        h1,h2,h3,h4,h5,h6 {
+            color: $FONTCOLOR;
+        }
+        h2 {
+            border-color:rgba($color: $borderColor, $alpha: 0.5);
+        }
+        h2,h3{
+            margin: 2.3rem 0 !important;
+        }
+        pre.language-text{
+            div.line-numbers-wrapper{
+                display: none;
+            }
+        }
+    }
+}
+.subCode-control-panel {
+    position: relative;
+    .login-panel-child {
+        width: 100%;
+        background-color: transparent;
+    }
+}
+
+.problem-info{
+    .item {
+        display: flex;
+        justify-content: space-between;
+        font-size:16px;
+        margin: 10px 0;
+        border-bottom: 1px solid rgba($color: $borderColor, $alpha: 0.5) ;
+    }
+}
+.card-data-download {
+    .card-body {
+        padding: 0;
+    }
+}
+

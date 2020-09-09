@@ -1,0 +1,60 @@
+.icon-cell {
+  padding: 0;
+  position: relative;
+  text-align: center; }
+  .icon-cell ins {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    position: absolute;
+    z-index: 5; }
+  .icon-cell del {
+    display: block;
+    background-repeat: no-repeat;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 10; }
+  .icon-cell a {
+    display: block;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    z-index: 20; }
+  .icon-cell .iconlarge ins {
+    height: 36px;
+    width: 36px;
+    left: 6px;
+    top: 6px;
+    border-radius: 4px; }
+  .icon-cell .iconlarge del {
+    height: 44px;
+    width: 44px;
+    background-image: url(/images/border.png); }
+  .icon-cell .iconmedium {
+    height: 44px;
+    width: 44px;
+    position: relative;
+    z-index: 0; }
+    .icon-cell .iconmedium ins {
+      height: 36px;
+      width: 36px;
+      left: 4px;
+      top: 4px;
+      border-radius: 4px; }
+    .icon-cell .iconmedium del {
+      height: 44px;
+      width: 44px;
+      background-image: url(/images/medium-border.png); }
+    .icon-cell .iconmedium a {
+      height: 38px;
+      width: 38px;
+      background: url(/images/medium-hilite-border.png) no-repeat 38px 0;
+      background-image: url(/images/medium-hilite-border.png);
+      background-position-x: 38px;
+      background-position-y: 0px;
+      background-repeat-x: no-repeat;
+      background-repeat-y: no-repeat;
+      border-radius: 4px !important; }
+      .icon-cell .iconmedium a:hover {
+        background-position: 0 0; }

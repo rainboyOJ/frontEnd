@@ -1,0 +1,57 @@
+extends ../../_partical/layout/admin_layout_app.pug
+include ../../_partical/card/card.pug
+include ../../_partical/component/layui-icon.pug
+block main
+  div
+    +Card('邀请码创建','i')
+      div.login-panel-child
+        form.layui-form(action='')
+          .layui-form-item
+            label.layui-form-label 数量
+            .layui-input-inline
+              input.layui-input(type='number' name='number'   placeholder='1' autocomplete='off')
+          .layui-form-item
+            label.layui-form-label 有效日期(天)
+            .layui-input-inline
+              input.layui-input(type='number' name='expireAt' placeholder='3' autocomplete='off')
+          .layui-form-item
+            .layui-input-block
+              button.layui-btn(lay-submit='' lay-filter='formPost') 创建
+    +Card('邀请码列表','i')
+      table.layui-table#invitecode-table
+block script
+  //-script(src="/js/login-form.js")
+  script.
+    layui.use(['http','form','message','table'],function(){
+      var form  = layui.form;
+      var table = layui.table
+      // table
+    //第一个实例
+    var tableIns = table.render({
+      elem: '#invitecode-table'
+      ,url: '/admin/invitecode/list/data' //数据接口
+      ,page: true //开启分页
+      ,cols: [[ //表头
+        {field: 'inviteCode', title: '邀请码', width:180}
+        ,{field: 'expireAt', title: '到期时间'}
+        ,{field: 'used', title: '是否使用', width:80}
+      ]],
+      parseData:function(res){
+      res.data = res.data.map(d=>{
+          var D = new Date(d.expireAt)
+          return {...d,expireAt:`${D.getFullYear()}-${D.getMonth()+1}-${D.getDate()} ${D.getHours()}:${D.getMinutes()}`}
+        })
+          return res
+      }
+    });
+
+
+      //监听提交
+      form.on('submit(formPost)', function(data){
+        layui.http.admin_invitecode_create(data.field).then(function(data){
+        layui.message.alert(data.message)
+        tableIns.reload()
+        })
+        return false;
+      });
+    })

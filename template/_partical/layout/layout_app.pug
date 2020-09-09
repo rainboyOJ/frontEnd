@@ -1,8 +1,8 @@
 extends layout.pug
 block content
   include ../nav/nav-panel.pug
-  //-include ../component/main-background.pug
-  include ../login/login-video-background.pug
+  include ../component/main-background.pug
+  //-include ../login/login-video-background.pug
   div.layui-container
     div.layui-row.layui-col-space10
       div.layui-col-md9.layui-col-sm9
@@ -11,7 +11,7 @@ block content
       div.layui-col-md3.layui-col-sm3
         div.slide
           block slide
-      div.layui-col-md3
   include ../footer/footer.pug
-block script
-  script(src="/js/nav.js")
+block layout_app_script
+  script.
+    layui.use('element')

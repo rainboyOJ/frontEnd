@@ -1,0 +1,16 @@
+.code-container {
+  position: relative; }
+  .code-container a.code-copy-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: block;
+    cursor: pointer;
+    z-index: 999; }
+    .code-container a.code-copy-button:hover .tooltip .q {
+      color: #997d00 !important; }
+    .code-container a.code-copy-button:active {
+      top: 12px; }
+      .code-container a.code-copy-button:active .tooltip .q {
+        color: #665400 !important;
+        text-shadow: 0px 1px 0px #2f6627; }

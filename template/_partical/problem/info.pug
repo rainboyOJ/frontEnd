@@ -1,3 +1,27 @@
 include ../card/card.pug
 +Card('题目信息','git')
-  p problem info
+  .problem-info
+    .item
+      span 时间限制
+      span= `${problem.time} ms`
+    .item
+      span 内存限制
+      span= `${problem.memory} MB`
+    .item
+      span 通过
+      span= problem.passed
+    .item
+      span 提交
+      span= problem.posted
+    .item
+      span 通过率
+      span= (problem.passed / problem.posted *100).toFixed(2) +" %"
+    .item
+      span 文件输入
+      span= problem.file_io_input_name
+    .item
+      span 文件输出
+      span= problem.file_io_output_name
+    .item
+      span 难度
+      span= problem.hard

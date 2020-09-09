@@ -1,0 +1,12 @@
+mixin tooltip(word)
+  .tooltip
+    table
+      tbody
+        tr
+          td
+            span.q
+              .no-wrap #{word}
+          th(style="background-position: right top;")
+        tr
+          th(style="background-position: left bottom;")
+          th(style="background-position: right bottom;")

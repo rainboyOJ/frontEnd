@@ -1,0 +1,44 @@
+extends ../_partical/layout/layout.pug
+include ../_partical/card/card.pug
+include ../_partical/component/icon-avatar.pug
+block content
+  include ../_partical/nav/nav-panel.pug
+  include ../_partical/component/main-background.pug
+  //-include ../login/login-video-background.pug
+  div.layui-container
+    div.layui-row.layui-col-space10
+      div.layui-col-md12.layui-col-sm12
+        div.main
+          block main
+            +Card
+              - var baseUrl ='/ranklist?page='
+              .problemList
+                table.tableList
+                  //-colgroup
+                    //-col(width="150")
+                    //-col(width="200")
+                    //-col
+                  thead
+                    tr
+                      th #
+                      th 用户
+                      th 个性签名
+                      th 通过
+                      th 积分
+                  tbody
+                    each user,index in users|| []
+                      tr
+                        td(style="width:48px;")=  (pagenation.page-1)*pagenation.pageSize +index+1
+                        td(style="width:48px;")
+                          +icon_avatar_medium(email2avatar(user.email),user._id)
+                        td= user.intro
+                        td(style="width:48px;")= user.passed.length
+                        td(style="width:48px;")= user.rank
+
+              .div(style="margin-top:30px;")
+                include ../_partical/component/pagenation.pug
+  include ../_partical/footer/footer.pug
+block layout_app_script
+  script.
+    layui.use('element')
+block script

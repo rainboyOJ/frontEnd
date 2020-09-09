@@ -1,4 +1,10 @@
-# Slime Online Judge FrontEnd
+# Rainboy Online Judge FrontEnd
+
+下载后先安装
+
+```sh
+./install_extra_assets.sh
+```
 
 
 ## 感谢

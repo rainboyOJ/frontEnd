@@ -15,9 +15,15 @@ $navFontfamily: 'Bungee', cursive;
 $navChildLink_Hover_BG: rgba($color: $Blue2, $alpha: 0.6);
 
 //card
-$cardBackground: #2d2d2d;
+//$cardBackground: #2d2d2d;
+$blue-palette-yellow:#FFCC99;
+$blue-palette-gray:#666666;
+$blue-palette-blue:#666699;
+$cardBackground: rgba($color:$blue-palette-gray,$alpha:0.4);
+//$cardBackground: #242424;
 $cardHeadTextColor: #D5D4D4;
-$cardBodyTextColor: #D5D4D4;
+$cardBodyTextColor: #FFFFFF;
+$cardBoardColor: rgba($color:$blue-palette-yellow,$alpha:0.2);
 
 //icon
 $iconBackground:#ffc33e;

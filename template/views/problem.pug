@@ -1,8 +1,134 @@
 extends ../_partical/layout/layout_app.pug
 include ../_partical/card/card.pug
+include ../_partical/component/icon-avatar.pug
+
+block head
+  link(rel="stylesheet", href=codemirror.css)
+  link(rel="stylesheet", href=codemirror.theme)
+  link(rel="stylesheet", href="/markdown/github-markdown.css")
+  link(rel="stylesheet", href="/markdown/markdown-r.css")
+  link(rel="stylesheet", href=prism.css)
 block main
+  #loading-container(style="display:none;")
+    include ../_partical/component/wc3-gif-loading.pug
   include ../_partical/problem/content.pug
   include ../_partical/problem/subCode.pug
 block slide
   include ../_partical/problem/info.pug
   include ../_partical/problem/tags.pug
+  +Card('数据下载','shouhui')
+    a.layui-btn.war3-blue-button#problem-data-download(href=`/problem/${problem.pid}/testdata`) 跳转下载页面
+  +Card('本题排行','longhubang')(class="card-data-download")
+    .problemList
+      table.tableList
+        thead
+          tr
+            th #
+            th 提交者
+            th 总时间
+            th 总内存
+          tbody
+            each item,index in problem.bestSub || []
+              tr
+                td(style="width:30px;")= index+1
+                td(style="width:48px;")
+                  +icon_avatar_medium(email2avatar(item.uid.email),item.uid._id)
+                td
+                  a(href="/submission/"+item.sid) #{item.total_time} ms
+                td 
+                  a(href="/submission/"+item.sid)= `${(item.total_memory/1024/1024).toFixed(2)} mb`
+
+block script
+  //-script(src="/markdown/markdown-r.js")
+  script(type="text/x-mathjax-config").
+    MathJax.Hub.Config({
+      TeX: { extensions: ["autoload-all.js"] },
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        //-<!--$表示行内元素，$$表示块状元素 -->
+        inlineMath: [ ['$','$'], ["\\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX","TeX"] ,
+        showMathMenu:false
+      },
+      CommonHTML: { scale: 100 }
+    });
+  script(async="" src=mathjax)
+  script(src=codemirror.script)
+  each lang in codemirror.languages
+    script(src=lang)
+  script.
+    const mode_choose = { 'cpp':'text/x-c++src','py':'text/x-python' }
+    var userChooseLang = localStorage.getItem("userChooseLang") || "cpp"
+    var auto_io  = localStorage.getItem("auto_io") || "1"
+
+    $(`input:radio[value="${userChooseLang}"]`).attr("checked","true")
+    $(`input:radio#${auto_io =="1" ? "auto_io_yes":"auto_io_no"}`).attr("checked","true")
+    $(`input:radio[name="lang"]`).click(function(data){
+      localStorage.setItem("userChooseLang",data.target.value)
+    })
+    $(`input:radio[name="auto_io"]`).click(function(data){
+      localStorage.setItem("auto_io",data.target.value)
+    })
+
+
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+      mode: mode_choose[userChooseLang], 
+      lineNumbers: true,	//显示行号
+      theme: "blackboard",	//设置主题
+      lineWrapping: true,	//代码折叠
+      foldGutter: true,
+      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+      matchBrackets: true,	//括号匹配
+      //readOnly: true,        //只读
+    });
+    var problem_judge,isJudgeEnd
+    layui.use('http',function(){ problem_judge = layui.http.problem_judge
+      isJudgeEnd = layui.http.isJudgeEnd
+      $(`button#subCode`).removeAttr("disabled")
+    })
+
+
+    $(`button#subCode`).click(function(){
+      let data = $("form#subCode-form").serializeArray();
+      let post_data =  {}
+      //-JSON.parse($("pre#init_val")[0].innerText) || {}
+      for( let {name,value} of data) post_data[name] = value
+      post_data.auto_io = parseInt(post_data.auto_io)
+      post_data.pid = parseInt(post_data.pid)
+      post_data.code = editor.getValue()
+      console.log(post_data)
+      $("#loading-container").show()
+      //-problem_judge(post_data).then( (data)=>{
+        //-console.log(data)
+      //-})
+      JUDGE(post_data)
+      return false
+    })
+
+    //判断评测是否结束
+    function delay(time){
+      return new Promise(function(res,rej){
+        setTimeout(res,time)
+      })
+    }
+    async function JUDGE(post_data){
+        let {_id} = await problem_judge(post_data)
+        for(let i = 0;i<100;i++){
+          let {judgeEnd} = await isJudgeEnd({_id})
+          if( judgeEnd ) {
+            //-console.log(judgeEnd)
+            window.location = `/submission/${_id}`
+            break;
+          }
+          console.log(`请求 ${i+1} 次`)
+          await delay(1000)
+        }
+    }
+
+
+
