@@ -35,7 +35,7 @@ block content
                               div(style=`color:${problem.sub_status == 2 ? "#ffd100" : "red"};`)
                                 +Icon( problem.sub_status == 2 ? 'duihao' : 'cuohao')
                         td= problem.pid
-                        td
+                        td(style="text-align:left;")
                           a(href=`/problem/${problem.pid}`) #{problem.title}
                         td= problem.passed
                         td= problem.posted

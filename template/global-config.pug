@@ -1,7 +1,7 @@
 - 
   var Author = {
     name:'Rainboy',
-    link:'#'
+    link:'https://rainboy.gitee.io/resume'
   }
   var siteName = "ROJ"
   var siteName_Full = "R Online Judge"
@@ -35,29 +35,31 @@
       "/CodeMirror/mode/python/python.js"
     ]
   }
-  var ali_icon="/font/iconfont.css"
 
-  //-//link use CDN
-  //-var videoBackground = {
-    //-mp4:"https://blz.nosdn.127.net/1/war3-website/home/FZC2VPOT8CO81540844823008.mp4",
-    //-webm:"https://blz.nosdn.127.net/1/war3-website/home/L4U6SWB7AMRS1540660275882.webm",
-  //-}
+    ali_icon="/font/iconfont.css"
+  if( USE_CDN) {
+      //link use CDN
+      videoBackground = {
+        mp4:"https://blz.nosdn.127.net/1/war3-website/home/FZC2VPOT8CO81540844823008.mp4",
+        webm:"https://blz.nosdn.127.net/1/war3-website/home/L4U6SWB7AMRS1540660275882.webm",
+      }
 
-  //-var jquery    = "https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"
-  //-var axios_cdn = "https://cdn.staticfile.org/axios/0.20.0/axios.min.js"
-  //-var mathjax   = "https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js"
+      jquery    = "https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"
+      axios_cdn = "https://cdn.staticfile.org/axios/0.20.0/axios.min.js"
+      mathjax   = "https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js"
 
-  //-var prism = {
-    //-css: "https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css"
-  //-}
+      var prism = {
+        css: "https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/themes/prism-tomorrow.min.css"
+      }
 
-  //-var codemirror = {
-    //-script:"https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/codemirror.js",
-    //-theme: "https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/theme/blackboard.min.css",
-    //-css: "https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/codemirror.css",
-    //-languages:[
-      //-"https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/mode/clike/clike.min.js",
-      //-"https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/mode/python/python.min.js"
-    //-]
-  //-}
-  //-var ali_icon="https//at.alicdn.com/t/font_963457_qux2uipb04i.css"
+      var codemirror = {
+        script:"https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/codemirror.js",
+        theme: "https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/theme/blackboard.min.css",
+        css: "https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/codemirror.css",
+        languages:[
+          "https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/mode/clike/clike.min.js",
+          "https://cdn.bootcdn.net/ajax/libs/codemirror/5.57.0/mode/python/python.min.js"
+        ]
+      }
+      ali_icon="https://at.alicdn.com/t/font_963457_qux2uipb04i.css"
+  }
