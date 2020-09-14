@@ -1,7 +1,7 @@
 .pagenation {
   display: inline-flex;
   vertical-align: middle;
-  border: 1px solid #bbb;
+  border: 1px solid #b7a2a2;
   border-clip: border-box;
   overflow: hidden;
   border-radius: 4px 4px 4px 4px; }
@@ -32,7 +32,7 @@
     transition: background .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
     transition: background .1s ease,box-shadow .1s ease,color .1s ease;
     transition: background .1s ease,box-shadow .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
-    border-right: 1px solid #bbb;
+    border-right: 1px solid #b7a2a2;
     border-clip: border-box; }
     .pagenation a:last-child {
       border: none; }
