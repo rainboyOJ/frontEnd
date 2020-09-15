@@ -2,7 +2,8 @@ extends ../_partical/layout/layout.pug
 include ../_partical/card/card.pug
 include ../_partical/component/icon-avatar.pug
 include ../_partical/component/tooltip.pug
-include ../_partical/component/layui-icon.pug
+//-include ../_partical/component/layui-icon.pug
+include ../_partical/component/ali_icon.pug
 
 block head
   link(rel="stylesheet", href=codemirror.css)
@@ -48,7 +49,7 @@ block content
                         td= item[1]
                         td
                           a(href=`/problem/${pid}/testdata/download/${item[0]}`)
-                            +Licon("download-circle")
+                            +Icon("download")
               div(style="padding:20px;text-align:center;")
                 a.layui-btn.war3-blue-button(href=`/problem/${pid}/testdata/download`) 打包下载
   include ../_partical/footer/footer.pug

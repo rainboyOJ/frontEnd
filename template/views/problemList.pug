@@ -26,20 +26,22 @@ block content
                       th 题目名称
                       th 通过
                       th 提交
+                      th 难度
                       th 通过率
                   tbody
                     each problem in problems || []
                       tr
                         td(style="width:48px;") 
                           - if(problem.sub_status)
-                              div(style=`color:${problem.sub_status == 2 ? "#ffd100" : "red"};`)
+                              div(style=`color:${problem.sub_status == 2 ? "#ffd100" : "#ff0014"};`)
                                 +Icon( problem.sub_status == 2 ? 'duihao' : 'cuohao')
                         td= problem.pid
                         td(style="text-align:left;")
                           a(href=`/problem/${problem.pid}`) #{problem.title}
                         td= problem.passed
                         td= problem.posted
-                        td= 1
+                        td= problem.hard
+                        td= problem.passedRate
               .div(style="margin-top:30px;")
                 include ../_partical/component/pagenation.pug
   include ../_partical/footer/footer.pug
