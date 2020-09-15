@@ -5,6 +5,7 @@ $borderColor:#4c4c4c;
         text-align: center;
         padding: 18px 0;
         border-bottom: 1px solid rgba($color:$borderColor,$alpha:0.6);
+        text-shadow: 0 1px 1px #10141a, 0 1px 3px #10141a, 0 2px 5px #10141a;
     }
     .markdown-body {
         color: $FONTCOLOR;
