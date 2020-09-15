@@ -13,6 +13,10 @@
   }
 
   //link use local
+  var layui = {
+    css:"/layui/css/layui.css",
+    script:"/layui/layui.js"
+  }
   var videoBackground = {
     mp4:"/video/war3-background.mp4",
     webm:"/video/war3-background.mp3",
@@ -23,7 +27,7 @@
   var mathjax   = "/MathJax/MathJax.js?config=TeX-MML-AM_CHTML"
 
   var prism = {
-    css: "/prism/themes/prism-tomorrow.min.css"
+    css: "/prism/themes/prism-tomorrow.min.css",
   }
 
   var codemirror = {
@@ -36,9 +40,14 @@
     ]
   }
 
-    ali_icon="/font/iconfont.css"
+  ali_icon="/font/iconfont.css"
   if( USE_CDN) {
       //link use CDN
+
+      layui = {
+        css:"https://www.layuicdn.com/layui-v2.5.6/css/layui.css",
+        script:"https://www.layuicdn.com/layui/layui.js"
+      }
       videoBackground = {
         mp4:"https://blz.nosdn.127.net/1/war3-website/home/FZC2VPOT8CO81540844823008.mp4",
         webm:"https://blz.nosdn.127.net/1/war3-website/home/L4U6SWB7AMRS1540660275882.webm",
