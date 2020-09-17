@@ -1,4 +1,4 @@
-- var TOP =  Math.ceil(last7DaySub.reduce((x,{postedCount})=> Math.max(postedCount,x),0) / 10 )
+- var TOP =  Math.ceil(last7DaySub.reduce((x,{postedCount})=> Math.max(postedCount,x),0) / 10 ) || -1
 .chart
   ul.numbers
     - for( var i = TOP*10 ;i>=0 ;i -= TOP) 
