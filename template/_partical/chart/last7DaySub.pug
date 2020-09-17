@@ -1,0 +1,12 @@
+- var TOP =  Math.ceil(last7DaySub.reduce((x,{postedCount})=> Math.max(postedCount,x),0) / 10 )
+.chart
+  ul.numbers
+    - for( var i = TOP*10 ;i>=0 ;i -= TOP) 
+      li
+        span= i
+  ul.bars
+    each item in last7DaySub || []
+      li
+        .bar1(data-percentage=`${item.postedCount}` style=`height: ${item.postedCount/TOP*10}%;`)
+        .bar2(data-percentage=`${item.passedCount}` style=`height: ${item.passedCount/TOP*10}%;`)
+        span= `${item.month}-${item.day}`

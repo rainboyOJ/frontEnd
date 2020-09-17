@@ -1,0 +1,16 @@
+div.userinfo-avatar
+  +Card
+    .avatar
+      img(src= email2avatar(user.email))
+    .extra-content
+      a 
+        +Licon('ok')
+        | 通过#{user.passed.length}题目
+      a 
+        +Licon('rate-solid')
+        | 积分 #{user.rank}
+    .extra-content
+      a 
+        | #{user.passedCount} /#{user.postedCount}
+      a 
+        | 通过率 #{user.postRate}

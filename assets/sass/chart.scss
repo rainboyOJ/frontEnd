@@ -1,0 +1,98 @@
+.chart {
+  width: 650px;
+  height: 300px;
+  margin: 30px auto;
+  display: block;
+  
+  .numbers {
+    width: 50px; 
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: left;
+    
+    li {
+      text-align: right;
+      padding-right: 1em;
+      list-style: none;
+      height: 29px;
+      border-bottom: 1px solid #444;
+      position: relative;
+      bottom: 30px;
+      
+      &:last-child {
+        height: 30px;
+      }
+      
+      span {
+        color: #eee;
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+      }
+    }
+  }
+  
+  .bars {
+    display: inline-block;
+    background: rgba(0,0,0,0.2);
+    width: 600px;
+    height: 300px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 0 1px #444;
+
+    li {
+      display: table-cell;
+      width: 100px;
+      height: 300px;
+      margin: 0;
+      text-align: center;
+      position: relative;
+      
+      .bar1,.bar2 {
+        display: block;
+        width: (70px/2);
+        margin-left: 15px;
+        background: #49E;
+        position: absolute;
+        bottom: 0;
+        
+        &:hover {
+          background: #5AE;
+          cursor: pointer;
+          
+          &:before {
+            color: white;
+            content: '提交' attr(data-percentage) '道';
+            position:relative;
+            bottom: 20px;
+          }
+        }
+      }
+      .bar2 {
+          margin-left:15px+(70px/2) ;
+          background-color: #ffc33e;
+          &:hover {
+              background: darken($color: #ffd100, $amount: 10);
+          }
+
+          &:hover {
+              &:before{
+                  content: '通过' attr(data-percentage) '道';
+              }
+          }
+      }
+
+      span {
+        color: #eee;
+        width: 100%;
+        position: absolute;
+        bottom: -2em;
+        left: 0;
+        text-align: center;
+      }
+    }
+  }
+}

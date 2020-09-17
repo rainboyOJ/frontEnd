@@ -1,0 +1,36 @@
+.tags-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    padding-top: 10px;
+    a {
+        width: unset;
+        background-color: rgba($color:#98172e , $alpha: 0.2);
+        color: #fff;
+        border-color: #98172e;
+        border: 1px solid #3b3b3b;
+        border-radius: 4px;
+        background-clip: padding-box;
+        height: 40px;
+        flex-grow: 1;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:hover {
+            color: #98172e;
+        }
+        .mark {
+            color: red;
+            display: inline-block;
+            background: yellow;
+            margin-right: 20px;
+            background-clip: border-box;
+            padding: 0 5px;
+        }
+    }
+}

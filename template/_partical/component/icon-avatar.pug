@@ -10,4 +10,4 @@ mixin icon_avatar_medium(url,uid)
     .iconmedium
       ins(style={"background-image": `url("${url}")`})
       del
-      a(href=`/userinfo${uid == _id ? "":uid}`)
+      a(href=`/userinfo${uid == _id ? "":"/"+uid}`)

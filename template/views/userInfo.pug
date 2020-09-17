@@ -25,24 +25,19 @@ block main
               textarea.layui-textarea(name='intro' maxlength="100" id="intro")
               script.
                 document.getElementById("intro").value = "123141231"
+    +Card('用户最近7天的提交','zhaohuanshou2')
+      div.last7DaySub
+        include ../_partical/chart/last7DaySub.pug
+    +Card('题目通过情况','zhaohuanshou2')
+      div.tags-grid
+        each item in user.posted || []
+          a(href=`/problem/${item.pid}`)
+            .mark(class= item.succ ? "succ" : "fail")
+              +Icon(item.succ ? "duihao" : "cuohao")
+            | #{`#${item.pid} ${item.title}`}
 
 block slide
-  div.userinfo-avatar
-    +Card
-      .avatar
-        img(src= email2avatar(user.email))
-      .extra-content
-        a 
-          +Licon('ok')
-          | 通过#{user.passed.length}题目
-        a 
-          +Licon('rate-solid')
-          | 积分 #{user.rank}
-      .extra-content
-        a 
-          | #{user.passedCount} /#{user.postedCount}
-        a 
-          | 通过率 #{user.postRate}
+  include ../_partical/user/card-avatar.pug
 
 block script
   script.

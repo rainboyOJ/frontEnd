@@ -1,4 +1,9 @@
 div.nav-panel
   a.link-brand(href="/",title="返回首页")
    include ../component/brandLogo.pug
-  include ./nav.pug
+  div.nav-item-cantainer
+    div.problem-jump
+      input(type="text")
+      label
+        i.layui-icon.layui-icon-search
+    include ./nav.pug

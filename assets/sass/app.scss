@@ -13,6 +13,8 @@
 @import "./tableList.scss";
 @import "./pagenation.scss";
 @import "./sub.scss";
+@import "./chart.scss";
+@import "./tagGrid.scss";
 
 body {
     background: #9c8491;
@@ -205,4 +207,38 @@ body {
     }
 
 
+}
+
+.nav-item-cantainer {
+    display: flex;
+    align-items: center;
+    .problem-jump{
+        display: flex;
+        input {
+            font-size: 18px;
+            display: block;
+            width: 180px;
+            border: none;
+            border-bottom: 1px solid #757575;
+            background-color: transparent;
+            caret-color: #fff;
+            padding: 5px 5px 5px 5px;
+            color: #fff;
+            &:focus {
+                border-color:#ccc
+            }
+        }
+        label {
+            display: flex;
+            color: #fff;
+            align-items: center;
+            padding-top:5px;
+            border-bottom: 1px solid #757575;
+            order: -1;
+        }
+        input:focus ~label {
+            color: #ccc;
+            border-color:#ccc
+        }
+    }
 }

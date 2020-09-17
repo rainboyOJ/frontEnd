@@ -35,7 +35,11 @@ block content
                         td(style="width:48px;")
                           +icon_avatar_medium(email2avatar(sub.uid.email),sub.uid._id)
                         td
-                          a(href="/problem/"+sub.pid.pid) #{sub.pid.title}
+                          - if(sub.pid)
+                            a(href="/problem/"+sub.pid.pid) #{sub.pid.title}
+                          - else
+                            a= 'unkown'
+
 
                         td(style="width:48px;")= sub.lang
                         td(style="width:120px;")

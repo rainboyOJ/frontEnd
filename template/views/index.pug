@@ -1,62 +1,50 @@
 extends ../_partical/layout/layout_app.pug
 include ../_partical/card/card.pug
 include ../_partical/component/ali_icon.pug
+include ../_partical/component/icon-avatar.pug
 block main
   div
     +Card('天梯/前5','icon_paihang-xian')
-      p Rainboy Made It
+      .problemList
+        table.tableList
+          thead
+            tr
+              th #
+              th 用户
+              th 个性签名
+              th 通过
+              th 积分
+          tbody
+            each user,index in rankTop5|| []
+              tr
+                td(style="width:48px;")= index+1
+                td(style="width:48px;")
+                  +icon_avatar_medium(email2avatar(user.email),user._id)
+                td= user.intro
+                td(style="width:48px;")= user.passed.length
+                td(style="width:48px;")= user.rank
+      br
+      br
+      h2 我的排名
+      br
+      br
+      .problemList
+        table.tableList
+          tbody
+            tr
+              td(style="width:48px;")= gt_user_count+1
+              td(style="width:48px;")
+                +icon_avatar_medium(email2avatar(email),_id)
+              td= user.intro
+              td(style="width:48px;")= 10
+              td(style="width:48px;")= rank
     +Card('用户最近7天的提交','zhaohuanshou2')
-      p card body
-      p= markdown
-      p= markdown
+      div.last7DaySub
+        include ../_partical/chart/last7DaySub.pug
     +Card('最新消息','bbs')
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
-      p card body
+      p TODO
 block slide
-  div
-    +Card('题目跳转','tiaochu')
-      p card body
-      +Icon('renwu1')
-      +Icon('zhaohuanshou2')
+  include ../_partical/user/card-avatar.pug
 block script
   script.
     layui.use('http')
