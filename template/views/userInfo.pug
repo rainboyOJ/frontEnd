@@ -10,21 +10,20 @@ block main
           .layui-form-item
             label.layui-form-label 真实姓名
             .layui-input-block
-              input.layui-input(type='text' name='realname' required='' lay-verify='required' value=realname autocomplete='off' readonly)
+              input.layui-input(type='text' name='realname' required='' lay-verify='required' value=user.realname autocomplete='off' readonly)
+
           .layui-form-item
-            label.layui-form-label 帐号
+            label.layui-form-label 用户名
             .layui-input-block
-              input.layui-input(type='text' name='username' required='' lay-verify='required' maxlength="10" value=username autocomplete='off')
+              input.layui-input(type='text' name='username' required='' lay-verify='required' maxlength="10" value=user.username autocomplete='off' readonly)
           .layui-form-item
             label.layui-form-label 邮箱
             .layui-input-block
-              input.layui-input(type='text' name='email' required='' lay-verify='required' value=email  autocomplete='off')
+              input.layui-input(type='text' name='email' required='' lay-verify='required' value=user.email  autocomplete='off' readonly)
           .layui-form-item.layui-form-text
             label.layui-form-label 个性签名
             .layui-input-block
-              textarea.layui-textarea(name='intro' maxlength="100" id="intro")
-              script.
-                document.getElementById("intro").value = "123141231"
+              textarea.layui-textarea(name='intro' maxlength="100" id="intro")= user.intro
     +Card('用户最近7天的提交','zhaohuanshou2')
       div.last7DaySub
         include ../_partical/chart/last7DaySub.pug
