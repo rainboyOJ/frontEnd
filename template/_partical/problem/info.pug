@@ -15,7 +15,7 @@ include ../card/card.pug
       span= problem.posted
     .item
       span 通过率
-      span= (problem.passed / problem.posted *100).toFixed(2) +" %"
+      span= problem.passedRate
     .item
       span 文件输入
       span= problem.file_io_input_name
