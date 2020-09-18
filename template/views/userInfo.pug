@@ -5,7 +5,7 @@ include ../_partical/component/layui-icon.pug
 include ../_partical/component/tooltip.pug
 block main
   div
-    +Card('用户信息','i')
+    +Card('用户信息','geren')
       .layui-form-pane.login-panel.login-panel-for-userinfo
         .login-panel-child
           form.layui-form(action='').layui-form-pane(style="width:100%;")
@@ -37,10 +37,10 @@ block main
                   a.war3Button(lay-submit='' lay-filter='changeUserInfo' style="float:right;margin-right:5em;")
                     +tooltip("修改")
 
-    +Card('用户最近7天的提交','zhaohuanshou2')
+    +Card('用户最近7天的提交','fenxi')
       div.last7DaySub
         include ../_partical/chart/last7DaySub.pug
-    +Card('题目通过情况','zhaohuanshou2')
+    +Card('题目通过情况','plus-itembank')
       div.tags-grid
         each item in user.posted || []
           a(href=`/problem/${item.pid}`)

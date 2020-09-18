@@ -36,9 +36,10 @@ block main
               td(style="width:48px;")
                 +icon_avatar_medium(email2avatar(email),_id)
               td= user.intro
-              td(style="width:48px;")= 10
-              td(style="width:48px;")= rank
-    +Card('用户最近7天的提交','zhaohuanshou2')
+              td(style="width:48px;")= user.passed.length
+              td(style="width:48px;")= user.rank
+
+    +Card('用户最近7天的提交','fenxi')
       div.last7DaySub
         include ../_partical/chart/last7DaySub.pug
     +Card('最新消息','bbs')
