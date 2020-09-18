@@ -2,6 +2,7 @@ extends ../_partical/layout/layout.pug
 include ../_partical/card/card.pug
 include ../_partical/component/icon-avatar.pug
 include ../_partical/component/tooltip.pug
+include ../_partical/component/layui-icon.pug
 
 block head
   link(rel="stylesheet", href=codemirror.css)
@@ -76,7 +77,9 @@ block content
                         th 结果
                         td 时间
                         th 内存
-                        th= ""
+                        th 细节
+                        th= "输入"
+                        th= "输出"
                     tbody
                       each item,index in sub.result
                         tr
@@ -84,8 +87,16 @@ block content
                           td= `${item.status}`
                           td= `${item.cpu_time} ms`
                           td= `${item.memory/1024} Kib`
+                          td
+                            .result_details
+                              .tooltip__initiator
+                                +Licon("help")
+                              .tooltip__item
+                                +tooltip(item.detail)
                           td(style="width:100px;")
-                            a.war3-blue-button.smalldownload(href=`/problem/1000/testdata`) 下载
+                            a.war3-blue-button.smalldownload(href=`/problem/${sub.pid.pid}/testdata/download/${data_list[index][0]}`) 下载
+                          td(style="width:100px;")
+                            a.war3-blue-button.smalldownload(href=`/problem/${sub.pid.pid}/testdata/download/${data_list[index][1]}`) 下载
 
   include ../_partical/footer/footer.pug
 block layout_app_script

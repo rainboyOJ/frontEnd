@@ -21,3 +21,19 @@
         }
     }
 }
+
+.result_details{
+    cursor: pointer;
+    position: relative;
+    .tooltip__item {
+        position: absolute;
+        visibility: hidden;
+        top: 50%;
+        right: 120%;
+    }
+    .tooltip__initiator:hover ~ .tooltip__item {
+        transform: translate3d(0, -50%, 0);
+        visibility: visible;
+        opacity: 1;
+    }
+}

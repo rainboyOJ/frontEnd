@@ -540,6 +540,19 @@
         color: #665400 !important;
         text-shadow: 0px 1px 0px #2f6627; }
 
+.result_details {
+  cursor: pointer;
+  position: relative; }
+  .result_details .tooltip__item {
+    position: absolute;
+    visibility: hidden;
+    top: 50%;
+    right: 120%; }
+  .result_details .tooltip__initiator:hover ~ .tooltip__item {
+    transform: translate3d(0, -50%, 0);
+    visibility: visible;
+    opacity: 1; }
+
 .chart {
   width: 650px;
   height: 300px;
