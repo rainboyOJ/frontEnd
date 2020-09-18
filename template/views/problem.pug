@@ -86,9 +86,10 @@ block script
       matchBrackets: true,	//括号匹配
       //readOnly: true,        //只读
     });
-    var problem_judge,isJudgeEnd
-    layui.use('http',function(){ problem_judge = layui.http.problem_judge
+    var problem_judge,isJudgeEnd,message
+    layui.use(['http','message'],function(){ problem_judge = layui.http.problem_judge
       isJudgeEnd = layui.http.isJudgeEnd
+      message = layui.message.alert
       $(`button#subCode`).removeAttr("disabled")
     })
 
@@ -99,8 +100,14 @@ block script
       //-JSON.parse($("pre#init_val")[0].innerText) || {}
       for( let {name,value} of data) post_data[name] = value
       post_data.auto_io = parseInt(post_data.auto_io)
-      post_data.pid = parseInt(post_data.pid)
+      post_data.pid = #{problem.pid}
+      post_data._pid = "#{problem._id}"
       post_data.code = editor.getValue()
+      if( post_data.code.length < 10){
+        message("代码的长度太短!")
+        return false
+      }
+        
       console.log(post_data)
       $("#loading-container").show()
       //-problem_judge(post_data).then( (data)=>{
