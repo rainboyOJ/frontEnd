@@ -763,7 +763,7 @@ body {
 .CodeMirror-readonly .CodeMirror-cursor {
   display: none !important; }
 
-.wc3-loading {
+.gear-loading, .wc3-loading {
   z-index: 9999999;
   position: fixed;
   top: 0;
@@ -775,8 +775,15 @@ body {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
   flex-direction: column; }
-  .wc3-loading .bar {
+  .gear-loading .bar, .wc3-loading .bar {
     color: #fff; }
+
+.gear-loading span.q {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  z-index: 99999; }
 
 .tooltip td, .tooltip th {
   background: url(/images/tooltip.png);

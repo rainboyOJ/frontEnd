@@ -16,6 +16,7 @@
 @import "./chart.scss";
 @import "./tagGrid.scss";
 @import "./war3Button.scss";
+//@import "./gear_loading.scss";
 
 body {
     background: #9c8491;
@@ -146,7 +147,7 @@ body {
   display: none !important
 }
 
-.wc3-loading {
+.gear-loading,.wc3-loading {
     z-index: 9999999;
     position: fixed;
     top:0;
@@ -160,6 +161,15 @@ body {
     flex-direction: column;
     .bar {
         color:#fff;
+    }
+}
+.gear-loading {
+    span.q {
+        position:absolute;
+        transform:translate(-50%,-50%);
+        left:50%;
+        top:50%;
+        z-index:99999;
     }
 }
 
