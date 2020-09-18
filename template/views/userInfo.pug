@@ -2,28 +2,41 @@ extends ../_partical/layout/layout_app.pug
 include ../_partical/card/card.pug
 include ../_partical/component/ali_icon.pug
 include ../_partical/component/layui-icon.pug
+include ../_partical/component/tooltip.pug
 block main
   div
     +Card('用户信息','i')
       .layui-form-pane.login-panel.login-panel-for-userinfo
         .login-panel-child
-          .layui-form-item
-            label.layui-form-label 真实姓名
-            .layui-input-block
-              input.layui-input(type='text' name='realname' required='' lay-verify='required' value=user.realname autocomplete='off' readonly)
+          form.layui-form(action='').layui-form-pane(style="width:100%;")
+            .layui-form-item
+              label.layui-form-label 真实姓名
+              .layui-input-block
+                input.layui-input(type='text' name='realname' required='' lay-verify='required' value=user.realname autocomplete='off' readonly)
+            .layui-form-item
+              label.layui-form-label 用户名
+              .layui-input-block
+                input.layui-input(type='text' name='username' required='' lay-verify='required' maxlength="10" value=user.username autocomplete='off' readonly)
+            - if(user_can_modify || user.showEmail) 
+              .layui-form-item
+                label.layui-form-label 邮箱
+                .layui-input-block
+                  input.layui-input(type='text' name='email' required='' lay-verify='required' value=user.email  autocomplete='off' readonly)
+            - if(user_can_modify) 
+              .layui-form-item
+                label.layui-form-label 公开邮箱
+                .layui-input-block
+                  input(type="checkbox" name="showEmail" lay-skin="switch" lay-text="ON|OFF" checked=user.showEmail)
+            .layui-form-item.layui-form-text
+              label.layui-form-label 个性签名
+              .layui-input-block
+                textarea.layui-textarea(name='intro' maxlength="100" id="intro")= user.intro
+            - if( user_can_modify )
+              .layui-form-item
+                .layui-input-block
+                  a.war3Button(lay-submit='' lay-filter='changeUserInfo' style="float:right;margin-right:5em;")
+                    +tooltip("修改")
 
-          .layui-form-item
-            label.layui-form-label 用户名
-            .layui-input-block
-              input.layui-input(type='text' name='username' required='' lay-verify='required' maxlength="10" value=user.username autocomplete='off' readonly)
-          .layui-form-item
-            label.layui-form-label 邮箱
-            .layui-input-block
-              input.layui-input(type='text' name='email' required='' lay-verify='required' value=user.email  autocomplete='off' readonly)
-          .layui-form-item.layui-form-text
-            label.layui-form-label 个性签名
-            .layui-input-block
-              textarea.layui-textarea(name='intro' maxlength="100" id="intro")= user.intro
     +Card('用户最近7天的提交','zhaohuanshou2')
       div.last7DaySub
         include ../_partical/chart/last7DaySub.pug
@@ -40,4 +53,15 @@ block slide
 
 block script
   script.
-    layui.use('http')
+    layui.use(['http','form','message'],function(){
+        var form = layui.form;
+
+        form.on('submit(changeUserInfo)', function(data){
+          //-layer.msg(JSON.stringify(data.field));
+          let {showEmail,intro} = data.field
+          layui.http.change_userinfo({showEmail: !!showEmail ,intro}).then((res)=>{
+            layui.message.alert(res.message)
+          })
+          return false;
+        });
+    })

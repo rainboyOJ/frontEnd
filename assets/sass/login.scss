@@ -173,5 +173,8 @@ $backgroundColorHOVER:rgba(255,255,255,0.3);
         textarea {
             border-color: rgba($color: #000000, $alpha: 0.2);
         }
+        .layui-form-onswitch {
+            background-color: #5FB878;
+        }
     }
 }

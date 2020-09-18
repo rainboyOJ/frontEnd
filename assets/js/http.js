@@ -131,11 +131,14 @@ layui.define(['loading','message'], function(exports){
   //用户登录
   const user_login    = data => post('/login',data)
 
+  const change_userinfo = data => post('/userinfo/change',data)
+
   //problem 发送评测数据
   const problem_judge = data => post('/problem/judge',data)
 
   //判断评测是否结束
   const isJudgeEnd = data => post('/is-judge-end',data)
+
 
   exports('http', {get,post,
     admin_login,
@@ -144,6 +147,7 @@ layui.define(['loading','message'], function(exports){
     user_register,
     user_login,
     problem_judge,
-    isJudgeEnd
+    isJudgeEnd,
+    change_userinfo
   });
 });
