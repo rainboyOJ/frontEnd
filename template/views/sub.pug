@@ -78,25 +78,14 @@ block content
                         th 内存
                         th= ""
                     tbody
-                      - 
-                        const RESULT_LIST_MEAN = {
-                        "-1" :"Wrong Answer"            ,
-                        "0" :"Accept"                   ,
-                        "1" :"Time Limit Exceeded"      ,
-                        "2" :"Real Time Limit Exceeded" ,
-                        "3" :"Memory Limit Exceeded"    ,
-                        "4" :"Runtime Error"            ,
-                        "5" :"System Error"             ,
-                        "6" :"SPJ Runtime Error"           
-                        }
                       each item,index in sub.result
                         tr
                           td(style="width:100px;text-align:left;")= `测试点#${index+1}`
-                          td= `${RESULT_LIST_MEAN[item.result]}`
+                          td= `${item.status}`
                           td= `${item.cpu_time} ms`
                           td= `${item.memory/1024} Kib`
                           td(style="width:100px;")
-                            button.war3-blue-button.smalldownload 下载
+                            a.war3-blue-button.smalldownload(href=`/problem/1000/testdata`) 下载
 
   include ../_partical/footer/footer.pug
 block layout_app_script
