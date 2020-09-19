@@ -2,6 +2,9 @@ extends ../_partical/layout/layout_app.pug
 include ../_partical/card/card.pug
 include ../_partical/component/ali_icon.pug
 include ../_partical/component/icon-avatar.pug
+include ../_partical/component/tooltip.pug
+include ../_partical/component/avatar_with_tooltip.pug
+
 block main
   div
     +Card('天梯/前5','icon_paihang-xian')
@@ -19,7 +22,7 @@ block main
               tr
                 td(style="width:48px;")= index+1
                 td(style="width:48px;")
-                  +icon_avatar_medium(email2avatar(user.email),user._id)
+                  +avatar_with_tooltip(user.email,user._id,user.realname)
                 td= user.intro
                 td(style="width:48px;")= user.passed.length
                 td(style="width:48px;")= user.rank
@@ -34,7 +37,7 @@ block main
             tr
               td(style="width:48px;")= gt_user_count+1
               td(style="width:48px;")
-                +icon_avatar_medium(email2avatar(email),_id)
+                +avatar_with_tooltip(email,_id,realname)
               td= user.intro
               td(style="width:48px;")= user.passed.length
               td(style="width:48px;")= user.rank

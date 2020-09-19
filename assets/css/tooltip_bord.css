@@ -1,0 +1,49 @@
+.tooltip td, .tooltip th {
+  background: url(/images/tooltip.png);
+  font-family: Verdana,open sans,Arial,helvetica neue,Helvetica,sans-serif;
+  font-size: 12px;
+  line-height: 17px;
+  color: #fff; }
+
+.tooltip td {
+  padding: 13px 6px 6px 13px !important;
+  text-align: left;
+  vertical-align: top; }
+
+.tooltip th {
+  padding: 3px; }
+
+.tooltip .q {
+  color: #ffd100 !important;
+  font-size: 20px; }
+
+.tooltip table, .tooltip td, .tooltip th, .tooltip tbody {
+  border: 0 !important; }
+
+.smallTooltip .tooltip td {
+  padding-top: 8px;
+  padding-right: 4px;
+  padding-bottom: 1px;
+  padding-left: 9px;
+  text-align: left;
+  vertical-align: top; }
+
+.smallTooltip .tooltip .q {
+  font-size: 15px; }
+
+.result_details {
+  cursor: pointer;
+  position: relative; }
+  .result_details .tooltip__item {
+    position: absolute;
+    visibility: hidden;
+    top: 50%;
+    right: 120%; }
+  .result_details .tooltip__initiator:hover ~ .tooltip__item {
+    transform: translate3d(0, -50%, 0);
+    visibility: visible;
+    opacity: 1; }
+
+.result_details_left .tooltip__item {
+  top: 50%;
+  left: 120%; }

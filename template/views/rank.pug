@@ -1,6 +1,7 @@
 extends ../_partical/layout/layout.pug
 include ../_partical/card/card.pug
 include ../_partical/component/icon-avatar.pug
+include ../_partical/component/avatar_with_tooltip.pug
 block content
   include ../_partical/nav/nav-panel.pug
   include ../_partical/component/main-background.pug
@@ -22,6 +23,7 @@ block content
                     tr
                       th #
                       th 用户
+                      th 真实姓名
                       th 个性签名
                       th 通过
                       th 积分
@@ -30,7 +32,8 @@ block content
                       tr
                         td(style="width:48px;")=  (pagenation.page-1)*pagenation.pageSize +index+1
                         td(style="width:48px;")
-                          +icon_avatar_medium(email2avatar(user.email),user._id)
+                          +avatar_with_tooltip(user.email,user._id,user.realname)
+                        td(style="width:68px;")= user.realname
                         td= user.intro
                         td(style="width:48px;")= user.passed.length
                         td(style="width:48px;")= user.rank

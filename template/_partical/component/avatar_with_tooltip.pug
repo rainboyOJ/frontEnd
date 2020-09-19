@@ -1,0 +1,8 @@
+include ./tooltip.pug
+include ./icon-avatar.pug
+mixin avatar_with_tooltip(email,uid,realname)
+  .result_details.result_details_left
+    .tooltip__initiator
+      +icon_avatar_medium(email2avatar(email),uid)
+    .tooltip__item
+      +tooltip(realname)

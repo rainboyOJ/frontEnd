@@ -3,6 +3,7 @@ include ../_partical/card/card.pug
 include ../_partical/component/icon-avatar.pug
 include ../_partical/component/tooltip.pug
 include ../_partical/component/layui-icon.pug
+include ../_partical/component/avatar_with_tooltip.pug
 
 block head
   link(rel="stylesheet", href=codemirror.css)
@@ -13,7 +14,6 @@ block head
 block content
   include ../_partical/nav/nav-panel.pug
   include ../_partical/component/main-background.pug
-  include ../_partical/component/tooltip.pug
   //-include ../login/login-video-background.pug
   div.layui-container
     div.layui-row.layui-col-space10
@@ -40,7 +40,7 @@ block content
                   tbody
                     tr
                       td(style="width:48px;")
-                        +icon_avatar_medium(email2avatar(sub.uid.email),sub.uid._id)
+                        +avatar_with_tooltip(sub.uid.email,sub.uid._id,sub.uid.realname)
                       td
                         a(href="/problem/"+sub.pid.pid) #{sub.pid.title}
 

@@ -1,6 +1,9 @@
 extends ../_partical/layout/layout.pug
 include ../_partical/card/card.pug
+include ../_partical/component/tooltip.pug
 include ../_partical/component/icon-avatar.pug
+include ../_partical/component/avatar_with_tooltip.pug
+
 block content
   include ../_partical/nav/nav-panel.pug
   include ../_partical/component/main-background.pug
@@ -33,7 +36,7 @@ block content
                     each sub in subs|| []
                       tr
                         td(style="width:48px;")
-                          +icon_avatar_medium(email2avatar(sub.uid.email),sub.uid._id)
+                          +avatar_with_tooltip(sub.uid.email,sub.uid._id,sub.uid.realname)
                         td
                           - if(sub.pid)
                             a(href="/problem/"+sub.pid.pid) #{sub.pid.title}
