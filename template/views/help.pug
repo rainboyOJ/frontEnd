@@ -1,0 +1,11 @@
+extends ../_partical/layout/layout_main_board.pug
+
+block head
+  link(rel="stylesheet", href="/markdown/github-markdown.css")
+  link(rel="stylesheet", href="/markdown/markdown-r.css")
+  link(rel="stylesheet", href=prism.css)
+
+block main_board
+  div.content.markdown-body
+    | !{help_content}
+

@@ -10,7 +10,17 @@ html
       script(src=jquery)
       script(src=axios_cdn)
       script(src=layui.script)
+      script(src="https://cdn.bootcss.com/pangu/4.0.7/pangu.min.js")
       script.
           layui.config({ base: '/js/' })
+          pangu.spacingElementByTagName('p');
+          document.addEventListener('DOMContentLoaded', () => {
+            // listen to any DOM change and automatically perform spacing via MutationObserver()
+            pangu.autoSpacingPage();
+          });
+          let lbBoxs = document.getElementsByClassName("lb-box")
+          for(let i = 0 ; i < lbBoxs.length;i++){
+            lbBoxs[i].setAttribute("id",`lb-${i}`); new Lb({id:`lb-${i}`}) 
+            }
       block layout_app_script
       block script

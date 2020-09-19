@@ -1,9 +1,9 @@
-extends ../_partical/layout/layout.pug
-include ../_partical/card/card.pug
-include ../_partical/component/ali_icon.pug
+extends ./layout.pug
+include ../card/card.pug
+include ../component/ali_icon.pug
 block content
-  include ../_partical/nav/nav-panel.pug
-  include ../_partical/component/main-background.pug
+  include ../nav/nav-panel.pug
+  include ../component/main-background.pug
   //-include ../login/login-video-background.pug
   div.layui-container
     div.layui-row.layui-col-space10
@@ -12,7 +12,7 @@ block content
           block main
             +Card
               block main_board
-  include ../_partical/footer/footer.pug
+  include ../footer/footer.pug
 block layout_app_script
   script.
     layui.use('element')
