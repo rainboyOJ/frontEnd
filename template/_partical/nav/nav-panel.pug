@@ -6,4 +6,19 @@ div.nav-panel
       input#problem-search-and-jump(type="text")
       label
         i.layui-icon.layui-icon-search
+      div.search_result#search_result(style="display:none;")
+        .tooltip
+          table
+            tbody
+              tr
+                td
+                  div.q
+                    ul.search_result_list#search_result_list
+                      //-li 
+                        //-a(href="/problem/1000") #1000  A+B 问题
+
+                th(style="background-position: right top;")
+              tr
+                th(style="background-position: left bottom;")
+                th(style="background-position: right bottom;")
     include ./nav.pug

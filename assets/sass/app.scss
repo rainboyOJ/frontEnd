@@ -181,6 +181,7 @@ body {
     align-items: center;
     .problem-jump{
         display: flex;
+        position: relative;
         input {
             font-size: 18px;
             display: block;
@@ -206,6 +207,26 @@ body {
         input:focus ~label {
             color: #ccc;
             border-color:#ccc
+        }
+
+        .search_result{
+            position: absolute;
+            z-index: 9999999;
+            top:50px;
+
+            .search_result_list {
+                a {
+                    white-space: nowrap;
+                    display: block;
+                    padding:20px  5px;
+                    border-bottom: 1px solid #474747;
+                    text-shadow: 0 1px 1px #10141a, 0 1px 3px #10141a, 0 2px 5px #10141a;
+                    color:#bbb;
+                    &:hover  {
+                        color:#fff;
+                    }
+                }
+            }
         }
     }
 }

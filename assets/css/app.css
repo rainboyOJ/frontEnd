@@ -846,7 +846,8 @@ body {
   display: flex;
   align-items: center; }
   .nav-item-cantainer .problem-jump {
-    display: flex; }
+    display: flex;
+    position: relative; }
     .nav-item-cantainer .problem-jump input {
       font-size: 18px;
       display: block;
@@ -869,3 +870,16 @@ body {
     .nav-item-cantainer .problem-jump input:focus ~ label {
       color: #ccc;
       border-color: #ccc; }
+    .nav-item-cantainer .problem-jump .search_result {
+      position: absolute;
+      z-index: 9999999;
+      top: 50px; }
+      .nav-item-cantainer .problem-jump .search_result .search_result_list a {
+        white-space: nowrap;
+        display: block;
+        padding: 20px  5px;
+        border-bottom: 1px solid #474747;
+        text-shadow: 0 1px 1px #10141a, 0 1px 3px #10141a, 0 2px 5px #10141a;
+        color: #bbb; }
+        .nav-item-cantainer .problem-jump .search_result .search_result_list a:hover {
+          color: #fff; }

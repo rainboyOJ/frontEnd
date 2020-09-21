@@ -4,7 +4,15 @@ layui.use('http',function(){
 
   function Problem_Search(search){
     return http.problem_search({search}).then( d =>{
-      console.log(d)
+      $("#search_result").show()
+      $("#search_result_list").empty()
+      if(d.problems.length ===0 )
+          $("#search_result_list").append(`<li><a style="pointer-events: none;" href="#">没有找到题目</a></li>`)
+      else
+        for( let {pid,title} of d.problems){
+          $("#search_result_list").append(`<li><a href="/problem/${pid}">${pid} ${title}</a></li>`)
+        }
+
     })
   }
 
@@ -12,7 +20,10 @@ layui.use('http',function(){
     var TIMEOUT_FLAG;
     return function (search) {
       clearTimeout(TIMEOUT_FLAG);
-      if(search.length == 0) return
+      if(search.length == 0) {
+        $("#search_result").hide()
+        return
+      }
       TIMEOUT_FLAG = setTimeout(()=>{
         Problem_Search(search)
       },1000)
