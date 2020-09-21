@@ -21,6 +21,7 @@ html
           let lbBoxs = document.getElementsByClassName("lb-box")
           for(let i = 0 ; i < lbBoxs.length;i++){
             lbBoxs[i].setAttribute("id",`lb-${i}`); new Lb({id:`lb-${i}`}) 
-            }
+          }
+      script(src="/script/app.js")
       block layout_app_script
       block script

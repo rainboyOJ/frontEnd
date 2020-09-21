@@ -136,6 +136,9 @@ layui.define(['loading','message'], function(exports){
   //problem 发送评测数据
   const problem_judge = data => post('/problem/judge',data)
 
+  //problem 查找
+  const problem_search = data => post('/problem_search',data)
+
   //判断评测是否结束
   const isJudgeEnd = data => post('/is-judge-end',data)
 
@@ -148,6 +151,7 @@ layui.define(['loading','message'], function(exports){
     user_login,
     problem_judge,
     isJudgeEnd,
-    change_userinfo
+    change_userinfo,
+    problem_search
   });
 });
