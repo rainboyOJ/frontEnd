@@ -1,6 +1,7 @@
 extends ../_partical/layout/layout_app.pug
 include ../_partical/card/card.pug
 include ../_partical/component/icon-avatar.pug
+include ../_partical/slide/pcs_exists_roj.pug
 
 block head
   link(rel="stylesheet", href=codemirror.css)
@@ -18,8 +19,11 @@ block main
 block slide
   include ../_partical/problem/info.pug
   include ../_partical/problem/tags.pug
+  +pcs_exists_roj(problem.pid)
   +Card('数据下载','shouhui')
-    a.layui-btn.war3-blue-button#problem-data-download(href=`/problem/${problem.pid}/testdata`) 跳转下载页面
+    a.layui-btn.war3-blue-button#problem-data-download(href=`/problem/${problem.pid}/testdata`)
+      +Icon('tiaochu')
+      | 跳转下载页面
   +Card('本题排行','longhubang')(class="card-data-download")
     .problemList
       table.tableList
@@ -138,5 +142,16 @@ block script
           await delay(3000)
         }
     }
+
+
+    //PCS解析
+    axios({
+      url: "#{PCS_URL}"+"utils/exists/roj-"+"#{problem.pid}",
+      timeout: 20000,
+    }).then(({data})=>{
+      if(data.exists)
+        $("#PCS_SOLVE").show()
+      else console.log("PCS上没有找相应的题目解析")
+    }).catch(()=>{ $("#PCS_SOLVE").hide() })
 
 

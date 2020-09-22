@@ -1,6 +1,6 @@
 include ../component/ali_icon.pug
 mixin Card(title,icon)
-  .card(class!=attributes.class)
+  .card(class!=attributes.class id!=attributes.id style!=attributes.style)
     if title
       .card-header
         if icon

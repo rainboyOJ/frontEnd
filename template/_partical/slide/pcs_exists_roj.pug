@@ -1,0 +1,7 @@
+include ../card/card.pug
+include ../component/ali_icon.pug
+mixin pcs_exists_roj(pid)
+  +Card('PCS解析','git')(id="PCS_SOLVE" style="display:none;")
+      a.layui-btn.war3-blue-button(href=`${PCS_URL}article/roj-${pid}` target="_blank") 
+        +Icon('fenxi')
+        | PCS题目解析
