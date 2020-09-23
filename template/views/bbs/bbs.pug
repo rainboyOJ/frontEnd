@@ -30,9 +30,8 @@ block main_board
             tr
               th 作者
               - if(tab === 'problem')
-                th 题目编号
-                th 题目名
-              th 标题
+                th(style="text-align: left;padding-left:20px;") 题目名
+              th(style="text-align: left;padding-left:20px;") 标题
               th 回复/浏览
               th 赞
               th 最新回复
@@ -42,10 +41,9 @@ block main_board
                   td(style="width:48px;")
                     +avatar_with_tooltip(topic.uid.email,topic.uid._id,topic.uid.realname)
                   - if(tab === 'problem')
-                    td(style="width:88px;")= topic.pid.pid
-                    td()
-                      a(href=`/problem/${topic.pid.pid}`) #{topic.pid.title}
-                  td
+                    td(style="text-align: left;padding-left:20px;")
+                      a(href=`/problem/${topic.pid.pid}`)= `#${topic.pid.pid} ${topic.pid.title}`
+                  td(style="text-align: left;padding-left:20px;")
                     a(href=`/bbs/${topic._id}`)= topic.title
                   td(style="width:88px;")= `${topic.reply_count}/${topic.visit_count}`
                   td(style="width:48px;")= topic.up_count

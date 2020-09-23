@@ -25,9 +25,10 @@ block main
             button.war3-default-btn.btn-fanbyte(disabled)
               +Licon("up")
               | 置顶
-          button.war3Button.war3-default-btn.btn-blizzard
+          a.war3Button.war3-default-btn.btn-blizzard#THUMBS-UP(class= thumbs_uped ? "disabled" : "")
             +Licon("praise")
             | 点赞
+            span.layui-badge.layui-bg-cyan(style="margin-left:10px;")#THUMBS-UP-NUMBER= topic.ups_count || 0
 
       div.content.markdown-body
         | !{topic.html_content}
@@ -58,39 +59,24 @@ block script
   each lang in codemirror.languages
     script(src=lang)
   script.
-    const mode_choose = { 'cpp':'text/x-c++src','py':'text/x-python' }
-    var userChooseLang = localStorage.getItem("userChooseLang") || "cpp"
-    var auto_io  = localStorage.getItem("auto_io") || "1"
-
-    $(`input:radio[value="${userChooseLang}"]`).attr("checked","true")
-    $(`input:radio#${auto_io =="1" ? "auto_io_yes":"auto_io_no"}`).attr("checked","true")
-    $(`input:radio[name="lang"]`).click(function(data){
-      localStorage.setItem("userChooseLang",data.target.value)
-    })
-    $(`input:radio[name="auto_io"]`).click(function(data){
-      localStorage.setItem("auto_io",data.target.value)
-    })
-
-
-    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-      mode: mode_choose[userChooseLang], 
-      lineNumbers: true,	//显示行号
-      theme: "blackboard",	//设置主题
-      lineWrapping: true,	//代码折叠
-      foldGutter: true,
-      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-      matchBrackets: true,	//括号匹配
-      //readOnly: true,        //只读
-    });
-    var problem_judge,isJudgeEnd,message
-    layui.use(['http','message'],function(){ problem_judge = layui.http.problem_judge
-      isJudgeEnd = layui.http.isJudgeEnd
+    layui.use(['http','message'],function(){ 
       message = layui.message.alert
-      $(`button#subCode`).removeAttr("disabled")
+      //-$(`button#subCode`).removeAttr("disabled")
+      $("#THUMBS-UP").click( function(){
+        layui.http.bbs_thumbs_up({
+          tid: "#{topic._id}"
+        }).then( (data)=>{
+            if(data.up){
+                $(this).addClass("disabled")
+                var num = $(this).children('#THUMBS-UP-NUMBER').text()
+                num++
+                $(this).children('#THUMBS-UP-NUMBER').text(num)
+            }
+            message(data.message)
+        })
+      })
     })
 
 
-    $(`button#subCode`).click(function(){
-    })
 
 

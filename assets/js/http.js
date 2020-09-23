@@ -145,6 +145,9 @@ layui.define(['loading','message'], function(exports){
   //bbs
   const bbsCreate= data => post('/bbs_create',data)
 
+  //bbs thumbs up {tid}
+  const bbs_thumbs_up = data => post('/bbs_thumbs_up',data)
+
 
   exports('http', {get,post,
     admin_login,
@@ -156,6 +159,7 @@ layui.define(['loading','message'], function(exports){
     isJudgeEnd,
     change_userinfo,
     problem_search,
-    bbsCreate
+    bbsCreate,
+    bbs_thumbs_up
   });
 });
