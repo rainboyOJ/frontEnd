@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "8700962",
+      "name": "十字剑",
+      "font_class": "shizijian",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "11776131",
+      "name": "功能",
+      "font_class": "gongnengpeizhi",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
       "icon_id": "17155450",
       "name": "battle",
       "font_class": "battle",

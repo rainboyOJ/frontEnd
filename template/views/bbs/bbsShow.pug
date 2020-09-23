@@ -1,0 +1,96 @@
+extends ../../_partical/layout/layout_app.pug
+include ../../_partical/card/card.pug
+include ../../_partical/component/icon-avatar.pug
+include ../../_partical/component/layui-icon.pug
+
+block head
+  link(rel="stylesheet", href=codemirror.css)
+  link(rel="stylesheet", href=codemirror.theme)
+  link(rel="stylesheet", href="/markdown/github-markdown.css")
+  link(rel="stylesheet", href="/markdown/markdown-r.css")
+  link(rel="stylesheet", href=prism.css)
+block main
+  +Card
+    .problem-show
+      div.title
+        h1= topic.title
+      .info-list
+        ul
+          li 发布于 #{topic.create_at_ago}
+          li 作者 #{topic.uid.realname}
+          li 浏览 #{topic.visit_count} 次
+          li 最后一次编辑 #{topic.update_at_ago} 
+        .buttons(style="margin-left:auto;")
+          - if( topic.top )
+            button.war3-default-btn.btn-fanbyte(disabled)
+              +Licon("up")
+              | 置顶
+          button.war3Button.war3-default-btn.btn-blizzard
+            +Licon("praise")
+            | 点赞
+
+      div.content.markdown-body
+        | !{topic.html_content}
+block slide
+  include ../../_partical/user/card-avatar.pug
+
+block script
+  //-script(src="/markdown/markdown-r.js")
+  script(type="text/x-mathjax-config").
+    MathJax.Hub.Config({
+      TeX: { extensions: ["autoload-all.js"] },
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        //-<!--$表示行内元素，$$表示块状元素 -->
+        inlineMath: [ ['$','$'], ["\\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": {
+        availableFonts: ["STIX","TeX"] ,
+        showMathMenu:false
+      },
+      CommonHTML: { scale: 100 }
+    });
+  script(async="" src=mathjax)
+  script(src=codemirror.script)
+  each lang in codemirror.languages
+    script(src=lang)
+  script.
+    const mode_choose = { 'cpp':'text/x-c++src','py':'text/x-python' }
+    var userChooseLang = localStorage.getItem("userChooseLang") || "cpp"
+    var auto_io  = localStorage.getItem("auto_io") || "1"
+
+    $(`input:radio[value="${userChooseLang}"]`).attr("checked","true")
+    $(`input:radio#${auto_io =="1" ? "auto_io_yes":"auto_io_no"}`).attr("checked","true")
+    $(`input:radio[name="lang"]`).click(function(data){
+      localStorage.setItem("userChooseLang",data.target.value)
+    })
+    $(`input:radio[name="auto_io"]`).click(function(data){
+      localStorage.setItem("auto_io",data.target.value)
+    })
+
+
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+      mode: mode_choose[userChooseLang], 
+      lineNumbers: true,	//显示行号
+      theme: "blackboard",	//设置主题
+      lineWrapping: true,	//代码折叠
+      foldGutter: true,
+      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+      matchBrackets: true,	//括号匹配
+      //readOnly: true,        //只读
+    });
+    var problem_judge,isJudgeEnd,message
+    layui.use(['http','message'],function(){ problem_judge = layui.http.problem_judge
+      isJudgeEnd = layui.http.isJudgeEnd
+      message = layui.message.alert
+      $(`button#subCode`).removeAttr("disabled")
+    })
+
+
+    $(`button#subCode`).click(function(){
+    })
+
+

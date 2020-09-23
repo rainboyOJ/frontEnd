@@ -1,0 +1,40 @@
+.war3Button {
+  display: block;
+  cursor: pointer;
+  z-index: 999; }
+  .war3Button:hover .tooltip .q {
+    color: #997d00 !important; }
+  .war3Button:active {
+    transform: translateY(3px); }
+    .war3Button:active .tooltip .q {
+      color: #665400 !important;
+      text-shadow: 0px 1px 0px #2f6627; }
+
+.war3-default-btn {
+  border-radius: 4px;
+  height: 30px;
+  line-height: 30px;
+  padding-bottom: 0;
+  padding-top: 0;
+  vertical-align: baseline;
+  color: #fff;
+  padding: 0 12px;
+  display: inline-block;
+  margin-left: 20px;
+  cursor: pointer;
+  border: none; }
+
+.btn-fanbyte {
+  background-color: #ea4c41 !important; }
+
+.btn-blizzard, .btn-blizzard[type] {
+  background-color: #2980b9 !important; }
+
+.btn-margin-top {
+  margin-top: 20px; }
+
+.btn-red {
+  background-color: #a71a19 !important; }
+
+.btn-none-border {
+  border: none !important; }

@@ -1,0 +1,41 @@
+extends ../../_partical/layout/layout_main_board.pug
+include ../../_partical/component/ali_icon.pug
+include ../../_partical/component/avatar_with_tooltip.pug
+
+block head
+
+block main_board
+  - var baseUrl ='/bbs?page='
+  - if(topics.length) baseUrl="/bbs/hello"
+  div.bbs-container
+    div.bbs-header
+      a.war3-default-btn.btn-fanbyte(href="/bbs/?tab=blow") 
+        +Icon('slime_fill')
+        | 吹水
+      a.war3-default-btn.btn-blizzard(href="/bbs/?tab=problem") 
+        +Icon('wendang')
+        | 题解
+      a.war3-default-btn.btn-blizzard(href="/bbs_post" style="margin-left:auto; margin-right:30px;")
+        +Icon('iconfont-iconmaineditkaobei')
+        | 发贴
+    div.bbs-main
+      .problemList
+        table.tableList
+          thead
+            tr
+              th 作者
+              th 标题
+              th 回复/浏览
+              th 赞
+              th 最新回复
+            tbody
+              each topic in topics || []
+                tr
+                  td(style="width:48px;")
+                    +avatar_with_tooltip(topic.uid.email,topic.uid._id,topic.uid.realname)
+                  td
+                    a(href=`/bbs/${topic._id}`)= topic.title
+                  td(style="width:88px;")= `${topic.reply_count}/${topic.visit_count}`
+                  td(style="width:48px;")= topic.up_count
+                  td(style="width:88px;")= topic.last_reply_at_human
+      include ../../_partical/component/pagenation.pug

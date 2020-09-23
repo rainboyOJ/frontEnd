@@ -209,6 +209,18 @@
   border-bottom: 1px solid rgba(76, 76, 76, 0.6);
   text-shadow: 0 1px 1px #10141a, 0 1px 3px #10141a, 0 2px 5px #10141a; }
 
+.problem-show .info-list {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center; }
+  .problem-show .info-list ul li {
+    display: inline-block;
+    margin-left: 10px; }
+    .problem-show .info-list ul li::before {
+      content: "\2022";
+      color: gray;
+      margin-right: 2px; }
+
 .problem-show .markdown-body {
   color: #fff; }
   .problem-show .markdown-body h1, .problem-show .markdown-body h2, .problem-show .markdown-body h3, .problem-show .markdown-body h4, .problem-show .markdown-body h5, .problem-show .markdown-body h6 {
@@ -658,6 +670,35 @@
       color: #665400 !important;
       text-shadow: 0px 1px 0px #2f6627; }
 
+.war3-default-btn {
+  border-radius: 4px;
+  height: 30px;
+  line-height: 30px;
+  padding-bottom: 0;
+  padding-top: 0;
+  vertical-align: baseline;
+  color: #fff;
+  padding: 0 12px;
+  display: inline-block;
+  margin-left: 20px;
+  cursor: pointer;
+  border: none; }
+
+.btn-fanbyte {
+  background-color: #ea4c41 !important; }
+
+.btn-blizzard, .btn-blizzard[type] {
+  background-color: #2980b9 !important; }
+
+.btn-margin-top {
+  margin-top: 20px; }
+
+.btn-red {
+  background-color: #a71a19 !important; }
+
+.btn-none-border {
+  border: none !important; }
+
 .tooltip td, .tooltip th {
   background: url(/images/tooltip.png);
   font-family: Verdana,open sans,Arial,helvetica neue,Helvetica,sans-serif;
@@ -727,6 +768,18 @@
   color: #e6e6e6;
   list-style-type: disc;
   font-size: 0.9rem; }
+
+.bbs-container .bbs-header {
+  background: #161616;
+  height: 44px;
+  border-bottom: 1px solid;
+  border-color: rgba(76, 76, 76, 0.5);
+  display: flex;
+  align-items: center; }
+
+.bbs-container table {
+  border-spacing: 0;
+  border-collapse: inherit; }
 
 body {
   background: #9c8491; }

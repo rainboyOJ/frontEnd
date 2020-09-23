@@ -1,0 +1,15 @@
+.bbs-container {
+  .bbs-header {
+    background: #161616;
+    height: 44px;
+    border-bottom: 1px solid;
+    border-color: rgba(76, 76, 76, 0.5);
+    display: flex;
+    align-items: center;
+  }
+  table {
+    border-spacing: 0;
+    border-collapse: inherit;
+  }
+
+}

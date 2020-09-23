@@ -4,6 +4,18 @@
   border-bottom: 1px solid rgba(76, 76, 76, 0.6);
   text-shadow: 0 1px 1px #10141a, 0 1px 3px #10141a, 0 2px 5px #10141a; }
 
+.problem-show .info-list {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center; }
+  .problem-show .info-list ul li {
+    display: inline-block;
+    margin-left: 10px; }
+    .problem-show .info-list ul li::before {
+      content: "\2022";
+      color: gray;
+      margin-right: 2px; }
+
 .problem-show .markdown-body {
   color: #fff; }
   .problem-show .markdown-body h1, .problem-show .markdown-body h2, .problem-show .markdown-body h3, .problem-show .markdown-body h4, .problem-show .markdown-body h5, .problem-show .markdown-body h6 {

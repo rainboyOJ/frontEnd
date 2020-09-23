@@ -34,4 +34,5 @@ layui.use('http',function(){
   $('#problem-search-and-jump').on("input", function(event) {
     debounce(this.value)
   })
+  
 })

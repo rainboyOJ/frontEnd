@@ -1,0 +1,82 @@
+extends ../../_partical/layout/layout_main_board.pug
+include ../../_partical/component/ali_icon.pug
+
+block head
+  link(rel="stylesheet", href=codemirror.css)
+  link(rel="stylesheet", href=codemirror.theme)
+  link(rel="stylesheet", href="/markdown/github-markdown.css")
+  link(rel="stylesheet", href="/markdown/markdown-r.css")
+
+block main_board
+  div.bbs-container
+    span.layui-breadcrumb
+      a bbs
+      a= problem ?  `题目: #${problem.pid} ${problem.title}` :'吹水'
+      a
+        cite 发贴
+    .layui-form-pane.login-panel.login-panel-for-userinfo
+      .login-panel-child
+        form.subCode-form#subCode-form(action='')
+          .layui-form-item(style="width:100%;")
+            label.layui-form-label 标题
+            .layui-input-block
+              input.layui-input(type='text' name='title' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off' maxlength="100"  style="border-bottom:1px solid #757575;")
+            - if(problem)
+              div(style="display:none;")
+                input.layui-input(type='text' name='pid' autocomplete='off' value=problem._id  style="border-bottom:1px solid #757575;" )
+
+    div.subCode
+      span 内容
+      textarea#code.form-control(name="code")
+    div.post_button(style="display:flex;margin-top:20px;")
+      div.readme.markdown-body
+        h4 说明
+        h5 请使用markdown 语言编写
+        ul
+          li 
+            a(href="https://www.cnblogs.com/mq0036/p/12743804.html" target="_blank") Markdown 教程
+          li
+            a(href="https://rainboy.gitee.io/markdown-r-online" target="_blank") 支持本网站Markdown语法的在线Editor
+      button.layui-btn.war3-blue-button.right-button#bbs_post_button(disabled style="margin-left:auto;") 发贴
+
+block script
+  script(src=codemirror.script)
+  each lang in codemirror.languages
+    script(src=lang)
+  script.
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+      mode: "text/x-markdown",
+      lineNumbers: true,	//显示行号
+      theme: "blackboard",	//设置主题
+      lineWrapping: true,	//代码折叠
+      foldGutter: true,
+      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+      matchBrackets: true,	//括号匹配
+      //readOnly: true,        //只读
+    });
+    var problem_judge,isJudgeEnd,message
+    layui.use(['http','message'],function(){
+      $(`button#bbs_post_button`).removeAttr("disabled")
+
+      $(`button#bbs_post_button`).click( function(){
+        let data = $("form#subCode-form").serializeArray();
+        let post_data =  {}
+        for( let {name,value} of data) post_data[name] = value
+        if( post_data.title.length < 4 || post_data.title.length >100){
+          layui.message.alert(`请确保标题的范围在[4,100]内`)
+          return false
+        }
+
+        post_data.content = editor.getValue()
+        if( post_data.content.length < 10 || post_data.content.length > 10000 ){
+          layui.message.alert(`请确保标题的范围在[10,10000]内`)
+          return false
+        }
+
+        layui.http.bbsCreate(post_data).then( (data)=>{
+          window.location = `/bbs/${data._id}`
+        })
+
+      })
+    })
+

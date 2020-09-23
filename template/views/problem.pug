@@ -1,7 +1,6 @@
 extends ../_partical/layout/layout_app.pug
 include ../_partical/card/card.pug
 include ../_partical/component/icon-avatar.pug
-include ../_partical/slide/pcs_exists_roj.pug
 
 block head
   link(rel="stylesheet", href=codemirror.css)
@@ -19,11 +18,21 @@ block main
 block slide
   include ../_partical/problem/info.pug
   include ../_partical/problem/tags.pug
-  +pcs_exists_roj(problem.pid)
-  +Card('数据下载','shouhui')
-    a.layui-btn.war3-blue-button#problem-data-download(href=`/problem/${problem.pid}/testdata`)
-      +Icon('tiaochu')
-      | 跳转下载页面
+  +Card('功能','gongnengpeizhi')
+    div(style="display:flex;flex-direction: column;")
+      a.war3-blue-button.war3Button#problem-data-download(href=`/problem/${problem.pid}/testdata`)
+        +Icon('download')
+        | 数据下载
+      a.war3-blue-button.war3Button.btn-margin-top.btn-fanbyte.btn-none-border(href=`/bbs_post/${problem.pid}`)
+        +Icon('iconfont-iconmaineditkaobei')
+        | 创建讨论
+      a.war3-blue-button.war3Button.btn-margin-top.btn-red.btn-none-border(href="/bbs/?tab=problem&pid="+problem.pid)
+        +Icon('iconfont-iconmaineditkaobei')
+        | 本题讨论
+        span.layui-badge.layui-bg-cyan(style="margin-left:10px;")= bbs_about_problem_count
+      a.war3-blue-button.btn-margin-top.war3Button(href=`${PCS_URL}article/roj-${pid}` target="_blank" id="PCS_SOLVE" style="display:none;") 
+        +Icon('fenxi')
+        | PCS题目解析
   +Card('本题排行','longhubang')(class="card-data-download")
     .problemList
       table.tableList

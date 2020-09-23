@@ -142,6 +142,9 @@ layui.define(['loading','message'], function(exports){
   //判断评测是否结束
   const isJudgeEnd = data => post('/is-judge-end',data)
 
+  //bbs
+  const bbsCreate= data => post('/bbs_create',data)
+
 
   exports('http', {get,post,
     admin_login,
@@ -152,6 +155,7 @@ layui.define(['loading','message'], function(exports){
     problem_judge,
     isJudgeEnd,
     change_userinfo,
-    problem_search
+    problem_search,
+    bbsCreate
   });
 });
