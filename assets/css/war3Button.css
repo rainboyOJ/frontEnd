@@ -25,10 +25,13 @@
   border: none; }
 
 .btn-fanbyte {
-  background-color: #ea4c41 !important; }
+  background-color: #ea4c41; }
 
 .btn-blizzard, .btn-blizzard[type] {
-  background-color: #2980b9 !important; }
+  background-color: #2980b9; }
+
+.btn-blizzard.disabled {
+  background-color: gray; }
 
 .btn-margin-top {
   margin-top: 20px; }

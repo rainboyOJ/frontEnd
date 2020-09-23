@@ -5,16 +5,21 @@ include ../../_partical/component/avatar_with_tooltip.pug
 block head
 
 block main_board
-  - var baseUrl ='/bbs?page='
-  - if(topics.length) baseUrl="/bbs/hello"
+  - var baseUrl ='/bbs?tab='+ tab + '&page='
   div.bbs-container
     div.bbs-header
-      a.war3-default-btn.btn-fanbyte(href="/bbs/?tab=blow") 
+      div(style="margin-left:30px;")
+        span.layui-breadcrumb
+          a bbs
+          a 
+            cite= tabName
+      a.war3-default-btn.btn-blizzard(href="/bbs/?tab=blow" class=tab === 'blow' ? "disabled" :"")
         +Icon('slime_fill')
         | 吹水
-      a.war3-default-btn.btn-blizzard(href="/bbs/?tab=problem") 
+      a.war3-default-btn.btn-blizzard(href="/bbs/?tab=problem" class=tab === 'problem' ? "disabled" :"")
         +Icon('wendang')
-        | 题解
+        | 题目讨论
+
       a.war3-default-btn.btn-blizzard(href="/bbs_post" style="margin-left:auto; margin-right:30px;")
         +Icon('iconfont-iconmaineditkaobei')
         | 发贴
@@ -24,6 +29,9 @@ block main_board
           thead
             tr
               th 作者
+              - if(tab === 'problem')
+                th 题目编号
+                th 题目名
               th 标题
               th 回复/浏览
               th 赞
@@ -33,6 +41,10 @@ block main_board
                 tr
                   td(style="width:48px;")
                     +avatar_with_tooltip(topic.uid.email,topic.uid._id,topic.uid.realname)
+                  - if(tab === 'problem')
+                    td(style="width:88px;")= topic.pid.pid
+                    td()
+                      a(href=`/problem/${topic.pid.pid}`) #{topic.pid.title}
                   td
                     a(href=`/bbs/${topic._id}`)= topic.title
                   td(style="width:88px;")= `${topic.reply_count}/${topic.visit_count}`
