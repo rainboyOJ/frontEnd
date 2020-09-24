@@ -47,13 +47,37 @@ block main
             .mark(class= item.succ ? "succ" : "fail")
               +Icon(item.succ ? "duihao" : "cuohao")
             | #{`#${item.pid} ${item.title}`}
+    +Card('我的文章','bbs')
+      div#BBSLIST
+        - 
+          var tab = [{
+              tabName:'全局',
+              query:{
+                tab:'blow',
+                uid: _id,
+                pageSize:10,
+                ignore_is_del:true
+              }
+            },
+            {
+               tabName:'题目',
+               query:{
+                tab:'problem',
+                uid: _id,
+                pageSize:10,
+                ignore_is_del:true
+               }
+            }]
+          var showpagenation = "true"
+        bbslist(v-bind:tab= tab self_uid= _id v-bind:showpagenation= showpagenation v-bind:action="true")
 
 block slide
   include ../_partical/user/card-avatar.pug
 
 block script
+  script(src=vue)
   script.
-    layui.use(['http','form','message'],function(){
+    layui.use(['http','form','message','vue-bbslist'],function(){
         var form = layui.form;
 
         form.on('submit(changeUserInfo)', function(data){
@@ -64,4 +88,8 @@ block script
           })
           return false;
         });
+
+      var bbslist = layui["vue-bbslist"]
+      Vue.component('bbslist',bbslist.component)
+      new Vue({ el: '#BBSLIST' })
     })

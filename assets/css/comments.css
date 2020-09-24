@@ -13,14 +13,14 @@
 .war3-blue-link {
   color: #00c0ff !important; }
 
-.comments .comments-list:first-child, .comments :not(.comments-list) + .comments-list {
-  border-top: 1px solid #585858; }
-
-.comments .comments-pagenation {
+.comments-pagenation {
   text-align: center;
   margin: 30px auto; }
-  .comments .comments-pagenation a {
+  .comments-pagenation a {
     cursor: pointer; }
+
+.comments .comments-list:first-child, .comments :not(.comments-list) + .comments-list {
+  border-top: 1px solid #585858; }
 
 .comments .comments-post {
   margin: 0 auto;

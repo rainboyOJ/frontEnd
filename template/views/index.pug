@@ -46,9 +46,32 @@ block main
       div.last7DaySub
         include ../_partical/chart/last7DaySub.pug
     +Card('最新消息','bbs')
-      p TODO
+      div#BBSLIST
+        - 
+          var tab = [{
+              tabName:'全局',
+              query:{
+                tab:'blow',
+                pageSize:10
+              }
+            },
+            {
+               tabName:'题目',
+               query:{
+                tab:'problem',
+                pageSize:10
+               }
+            }]
+          var showPagenation = false
+        bbslist(v-bind:tab= tab self_uid= _id v-bind:showPagenation= showPagenation)
+
 block slide
   include ../_partical/user/card-avatar.pug
 block script
+  script(src=vue)
   script.
-    layui.use('http')
+    layui.use(['vue-bbslist'],function(){
+      var bbslist = layui["vue-bbslist"]
+      Vue.component('bbslist',bbslist.component)
+      new Vue({ el: '#BBSLIST' })
+    })

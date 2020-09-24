@@ -19,35 +19,35 @@
     color: #00c0ff!important;
 }
 
+.comments-pagenation {
+    text-align: center;
+    margin:30px auto;
+    a {
+        cursor: pointer;
+    }
+}
 
 .comments {
     .comments-list:first-child, :not(.comments-list) + .comments-list{ 
         border-top: 1px solid #585858;
     }
-    .comments-pagenation {
-        text-align: center;
-        margin:30px auto;
-        a {
-            cursor: pointer;
-        }
-    }
 
-.comments-post {
-    margin:0 auto;
-    width: 600px;
-    .CodeMirror {
-        .CodeMirror-code {
-            min-height: 100px !important;
+    .comments-post {
+        margin:0 auto;
+        width: 600px;
+        .CodeMirror {
+            .CodeMirror-code {
+                min-height: 100px !important;
+            }
+        }
+        .comments-post-button {
+            display: flex;
+            justify-content: center;
+        }
+        .extra-info {
+            color:gray !important;
         }
     }
-    .comments-post-button {
-        display: flex;
-        justify-content: center;
-    }
-    .extra-info {
-        color:gray !important;
-    }
-}
     .comments-list {
         padding: 10px 10px;
         border-bottom: 1px solid #585858;

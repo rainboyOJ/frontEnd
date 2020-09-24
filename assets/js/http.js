@@ -145,8 +145,14 @@ layui.define(['loading','message'], function(exports){
   //bbs
   const bbsCreate= data => post('/bbs_create',data)
 
+  //bbs_list_api
+  const bbs_list_api = query => post('/bbs_list_api/',query)
+
   //bbs thumbs up {tid}
   const bbs_thumbs_up = data => post('/bbs_thumbs_up',data)
+
+  //bbs udpate
+  const bbs_update = data => post('/bbs_update',data)
 
   //bbs reply create {tid,content}
   const reply_create= data => post('/reply/create',data)
@@ -171,6 +177,8 @@ layui.define(['loading','message'], function(exports){
     bbs_thumbs_up,
     reply_create,
     reply_list,
-    reply_thumbs_up
+    reply_thumbs_up,
+    bbs_list_api,
+    bbs_update
   });
 });

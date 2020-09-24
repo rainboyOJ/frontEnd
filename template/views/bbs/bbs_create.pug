@@ -13,21 +13,32 @@ block main_board
       a bbs
       a= problem ?  `题目: #${problem.pid} ${problem.title}` :'吹水'
       a
-        cite 发贴
+        cite= update ? '编辑' : '发贴'
     .layui-form-pane.login-panel.login-panel-for-userinfo
       .login-panel-child
-        form.subCode-form#subCode-form(action='')
-          .layui-form-item(style="width:100%;")
+        form.layui-form#subCode-form(action='')
+          .layui-form-item
             label.layui-form-label 标题
             .layui-input-block
-              input.layui-input(type='text' name='title' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off' maxlength="100"  style="border-bottom:1px solid #757575;")
-            - if(problem)
-              div(style="display:none;")
-                input.layui-input(type='text' name='pid' autocomplete='off' value=problem._id  style="border-bottom:1px solid #757575;" )
+              input.layui-input(type='text' name='title' required='' lay-verify='required' placeholder='请输入标题' autocomplete='off' maxlength="100"  style="border-bottom:1px solid #757575;" value= update ? topic.title : '')
+          - if(update)
+            .layui-form-item
+              label.layui-form-label 删除
+              .layui-input-block
+                input(type="checkbox" name="is_del" lay-skin="switch" lay-text="ON|OFF" checked= topic.is_del)
+            .layui-form-item(style="display:none;")
+              label.layui-form-label 删除
+              .layui-input-block
+              input.layui-input(type='text' name='tid' value= topic._id)
+          - if(problem)
+            .layui-form-item(style="display:none;")
+              label.layui-form-label 删除
+              .layui-input-block
+                  input.layui-input(type='text' name='pid' autocomplete='off' value=problem._id  style="border-bottom:1px solid #757575;" )
 
     div.subCode
       span 内容
-      textarea#code.form-control(name="code")
+      textarea#code.form-control(name="code")= update ? topic.content : ''
     div.post_button(style="display:flex;margin-top:20px;")
       div.readme.markdown-body
         h4 说明
@@ -37,7 +48,7 @@ block main_board
             a(href="https://www.cnblogs.com/mq0036/p/12743804.html" target="_blank") Markdown 教程
           li
             a(href="https://rainboy.gitee.io/markdown-r-online" target="_blank") 支持本网站Markdown语法的在线Editor
-      button.layui-btn.war3-blue-button.right-button#bbs_post_button(disabled style="margin-left:auto;") 发贴
+      button.layui-btn.war3-blue-button.right-button#bbs_post_button(disabled style="margin-left:auto;")= update ? '编辑' : '发贴'
 
 block script
   script(src=codemirror.script)
@@ -55,7 +66,8 @@ block script
       //readOnly: true,        //只读
     });
     var problem_judge,isJudgeEnd,message
-    layui.use(['http','message'],function(){
+    layui.use(['http','message','form'],function(){
+
       $(`button#bbs_post_button`).removeAttr("disabled")
 
       $(`button#bbs_post_button`).click( function(){
@@ -73,9 +85,18 @@ block script
           return false
         }
 
-        layui.http.bbsCreate(post_data).then( (data)=>{
-          window.location = `/bbs/${data._id}`
-        })
+        if( #{!!update} ){ //编辑更新
+          if(post_data.is_del) post_data.is_del = true
+
+          layui.http.bbs_update(post_data).then(data=>{
+            layui.message.alert(data.message)
+          })
+        }
+        else {
+          layui.http.bbsCreate(post_data).then( (data)=>{
+            window.location = `/bbs/${data._id}`
+          })
+        }
 
       })
     })
