@@ -1,0 +1,18 @@
+include "../../_partical/card/card.pug"
+include "../../_partical/component/layui-icon.pug"
++Card("评论")(style="position:relative;")
+  .loading-wrap(v-bind:style=)
+  .comments#comments
+    .comments-item(v-for="item in comments")
+      .author-content
+        a.user_avatar
+        .reply-info
+          span 1楼
+          span 3个月前
+        .reply-action
+          +Licon("praise")
+          span 3
+      .reply-content.markdown-body(v-html="item.html-content")
+      .comments-page
+
+

@@ -1,0 +1,78 @@
+.before-dot {
+    &::before{
+        content: "\2022";
+        color: gray;
+        margin-right: 2px;
+    }
+}
+
+.war3-link {
+    color: #ffd100;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+
+}
+.war3-blue-link {
+    color: #00c0ff!important;
+}
+
+
+.comments {
+    .comments-list:first-child, :not(.comments-list) + .comments-list{ 
+        border-top: 1px solid #585858;
+    }
+    .comments-pagenation {
+        text-align: center;
+        margin:30px auto;
+        a {
+            cursor: pointer;
+        }
+    }
+
+.comments-post {
+    margin:0 auto;
+    width: 600px;
+    .CodeMirror {
+        .CodeMirror-code {
+            min-height: 100px !important;
+        }
+    }
+    .comments-post-button {
+        display: flex;
+        justify-content: center;
+    }
+    .extra-info {
+        color:gray !important;
+    }
+}
+    .comments-list {
+        padding: 10px 10px;
+        border-bottom: 1px solid #585858;
+        .comments-header {
+            padding-left: 20px;
+            height: 30px;
+            line-height: 30px;
+            > div {
+                display: inline-block;
+                float: left;
+                margin-right:10px;
+            }
+            .avatar {
+                height: 44px;
+                width: 44px;
+            }
+            .user-action {
+                float: right;
+                i {
+                    cursor: pointer;
+                }
+            }
+        }
+        .comments-body {
+            padding-left: 40px;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.before-dot::before {
+  content: "\2022";
+  color: gray;
+  margin-right: 2px; }
+
+.war3-link {
+  color: #ffd100;
+  cursor: pointer;
+  text-decoration: none; }
+  .war3-link:hover {
+    text-decoration: underline; }
+
+.war3-blue-link {
+  color: #00c0ff !important; }
+
+.comments .comments-list:first-child, .comments :not(.comments-list) + .comments-list {
+  border-top: 1px solid #585858; }
+
+.comments .comments-pagenation {
+  text-align: center;
+  margin: 30px auto; }
+  .comments .comments-pagenation a {
+    cursor: pointer; }
+
+.comments .comments-post {
+  margin: 0 auto;
+  width: 600px; }
+  .comments .comments-post .CodeMirror .CodeMirror-code {
+    min-height: 100px !important; }
+  .comments .comments-post .comments-post-button {
+    display: flex;
+    justify-content: center; }
+  .comments .comments-post .extra-info {
+    color: gray !important; }
+
+.comments .comments-list {
+  padding: 10px 10px;
+  border-bottom: 1px solid #585858; }
+  .comments .comments-list .comments-header {
+    padding-left: 20px;
+    height: 30px;
+    line-height: 30px; }
+    .comments .comments-list .comments-header > div {
+      display: inline-block;
+      float: left;
+      margin-right: 10px; }
+    .comments .comments-list .comments-header .avatar {
+      height: 44px;
+      width: 44px; }
+    .comments .comments-list .comments-header .user-action {
+      float: right; }
+      .comments .comments-list .comments-header .user-action i {
+        cursor: pointer; }
+  .comments .comments-list .comments-body {
+    padding-left: 40px; }

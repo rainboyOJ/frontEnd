@@ -29,9 +29,11 @@ block main
             +Licon("praise")
             | 点赞
             span.layui-badge.layui-bg-cyan(style="margin-left:10px;")#THUMBS-UP-NUMBER= topic.ups_count || 0
-
-      div.content.markdown-body
-        | !{topic.html_content}
+    div.content.markdown-body
+      | !{topic.html_content}
+  +Card
+    #components-demo
+      comments(tid= topic._id self_uid= _id)
 block slide
   include ../../_partical/user/card-avatar.pug
 
@@ -58,7 +60,9 @@ block script
   script(src=codemirror.script)
   each lang in codemirror.languages
     script(src=lang)
+  script(src="/script/vue.js")
   script.
+
     layui.use(['http','message'],function(){ 
       message = layui.message.alert
       //-$(`button#subCode`).removeAttr("disabled")
@@ -75,7 +79,27 @@ block script
             message(data.message)
         })
       })
+
+      //-$("#reply_create").click( function(){
+        //-let post_data = { tid : "#{topic._id}"}
+        //-post_data.content = editor.getValue()
+        //-if( post_data.content.length < 5 || post_data.content.length > 1000){
+          //-message("请确保评论的内容在[5,1000]之间")
+          //-return false
+        //-}
+        //-layui.http.reply_create(post_data).then( data=>{
+            //-message(data.message)
+        //-})
+      //-})
     })
+    layui.use(['vue-comments','vue-codemirror'],function(){
+      var comments = layui["vue-comments"]
+      var codemirror = layui["vue-codemirror"]
+      Vue.component('codemirror',codemirror.component)
+      Vue.component('comments',comments.component)
+      new Vue({ el: '#components-demo' })
+    })
+
 
 
 

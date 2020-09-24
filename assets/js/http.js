@@ -1,4 +1,4 @@
-// 进行网格请求的库
+// 进行网格请求的库 //点赞成功
 layui.define(['loading','message'], function(exports){
   const change_captcha = function(svg){
     //console.log(svg)
@@ -148,6 +148,14 @@ layui.define(['loading','message'], function(exports){
   //bbs thumbs up {tid}
   const bbs_thumbs_up = data => post('/bbs_thumbs_up',data)
 
+  //bbs reply create {tid,content}
+  const reply_create= data => post('/reply/create',data)
+
+  //bbs get reply list {tid,page}
+  const reply_list = (tid,page=1)=> get(`/reply/list/${tid}/${page}`)
+
+  //reply thumbs up {rid}
+  const reply_thumbs_up = data => post('/reply/thumbs_up',data)
 
   exports('http', {get,post,
     admin_login,
@@ -160,6 +168,9 @@ layui.define(['loading','message'], function(exports){
     change_userinfo,
     problem_search,
     bbsCreate,
-    bbs_thumbs_up
+    bbs_thumbs_up,
+    reply_create,
+    reply_list,
+    reply_thumbs_up
   });
 });

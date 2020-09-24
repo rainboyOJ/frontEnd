@@ -19,6 +19,7 @@
 @import "./tooltip_bord.scss";
 @import "./markdown-body.scss";
 @import "./bbs.scss";
+@import "./comments.scss";
 //@import "./gear_loading.scss";
 
 body {
@@ -42,7 +43,7 @@ body {
 }
 .subCode{
     .CodeMirror {
-        border: 1px solid #eee;
+        //border: 1px solid #eee;
         height: auto;
         .CodeMirror-code {
             min-height: 300px;
