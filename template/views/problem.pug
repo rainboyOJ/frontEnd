@@ -30,7 +30,7 @@ block slide
         +Icon('iconfont-iconmaineditkaobei')
         | 本题讨论
         span.layui-badge.layui-bg-cyan(style="margin-left:10px;")= bbs_about_problem_count
-      a.war3-blue-button.btn-margin-top.war3Button(href=`${PCS_URL}article/roj-${pid}` target="_blank" id="PCS_SOLVE" style="display:none;") 
+      a.war3Button.war3-blue-button.btn-margin-top.btn-none-border.btn-green(href=`${PCS_URL}article/roj-${problem.pid}` target="_blank" id="PCS_SOLVE" style="display:none;") 
         +Icon('fenxi')
         | PCS题目解析
   +Card('本题排行','longhubang')(class="card-data-download")
