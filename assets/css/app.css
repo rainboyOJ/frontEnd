@@ -670,6 +670,25 @@
       color: #665400 !important;
       text-shadow: 0px 1px 0px #2f6627; }
 
+.war3-blue-button {
+  display: inline-block;
+  position: relative;
+  background-color: #0e86ca;
+  border: solid 1px #00aeff;
+  font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  padding: 10px 50px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  outline: 0;
+  overflow: visible;
+  max-width: 100%;
+  transition: color .2s,background-color .2s,border-color .2s; }
+
 .war3-default-btn {
   border-radius: 4px;
   height: 30px;
@@ -697,13 +716,24 @@
   margin-top: 20px; }
 
 .btn-red {
-  background-color: #a71a19 !important; }
+  background-color: #a71a19; }
 
 .btn-none-border {
   border: none !important; }
 
 .btn-green {
-  background-color: #393 !important; }
+  background-color: #393; }
+
+.btn-brown {
+  background-color: #a5673f; }
+
+.btn-orange {
+  background-color: #21ba45; }
+
+a.disabled {
+  pointer-events: none;
+  background-color: gray;
+  color: #9b9b9b; }
 
 .tooltip td, .tooltip th {
   background: url(/images/tooltip.png);
@@ -858,25 +888,6 @@ body {
   .subCode .CodeMirror .CodeMirror-code {
     min-height: 300px; }
 
-.war3-blue-button {
-  display: inline-block;
-  position: relative;
-  background-color: #0e86ca;
-  border: solid 1px #00aeff;
-  font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1;
-  color: #fff;
-  padding: 10px 50px;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  outline: 0;
-  overflow: visible;
-  max-width: 100%;
-  transition: color .2s,background-color .2s,border-color .2s; }
-
 .switch-field {
   display: flex;
   margin-bottom: 36px;
@@ -997,6 +1008,3 @@ body {
         color: #bbb; }
         .nav-item-cantainer .problem-jump .search_result .search_result_list a:hover {
           color: #fff; }
-
-a.disabled {
-  pointer-events: none; }

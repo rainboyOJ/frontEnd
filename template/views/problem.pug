@@ -30,7 +30,10 @@ block slide
         +Icon('iconfont-iconmaineditkaobei')
         | 本题讨论
         span.layui-badge.layui-bg-cyan(style="margin-left:10px;")= bbs_about_problem_count
-      a.war3Button.war3-blue-button.btn-margin-top.btn-none-border.btn-green(href=`${PCS_URL}article/roj-${problem.pid}` target="_blank" id="PCS_SOLVE" style="display:none;") 
+      a.war3Button.war3-blue-button.btn-margin-top.btn-none-border.btn-brown(href=`/submissions?pid=${problem.pid}`) 
+        +Icon('renwu')
+        | 提交记录
+      a.war3Button.war3-blue-button.btn-margin-top.btn-none-border.btn-green.disabled(href=`${PCS_URL}article/roj-${problem.pid}` target="_blank" id="PCS_SOLVE") 
         +Icon('fenxi')
         | PCS题目解析
   +Card('本题排行','longhubang')(class="card-data-download")
@@ -159,7 +162,7 @@ block script
       timeout: 20000,
     }).then(({data})=>{
       if(data.exists)
-        $("#PCS_SOLVE").show()
+        $("#PCS_SOLVE").removeClass("disabled")
       else console.log("PCS上没有找相应的题目解析")
     }).catch(()=>{ $("#PCS_SOLVE").hide() })
 
