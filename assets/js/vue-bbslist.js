@@ -105,6 +105,7 @@ layui.define(['http','message'],function(exports){
                   </a>
                 </td>
                 <td>
+                  <button class="war3-default-btn btn-blizzard" v-show="item.top">置顶</button>
                   <a :href="'/bbs/'+item._id">{{item.title}}</a>
                 </td>
                 <td>{{item.last_reply_at_human}}</td>
