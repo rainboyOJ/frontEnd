@@ -80,8 +80,8 @@ block script
         }
 
         post_data.content = editor.getValue()
-        if( post_data.content.length < 10 || post_data.content.length > 10000 ){
-          layui.message.alert(`请确保标题的范围在[10,10000]内`)
+        if( post_data.content.length < 10){
+          layui.message.alert(`请确保内容的范围>=10`)
           return false
         }
 
