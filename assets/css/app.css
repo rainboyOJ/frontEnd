@@ -702,6 +702,9 @@
 .btn-none-border {
   border: none !important; }
 
+.btn-green {
+  background-color: #393 !important; }
+
 .tooltip td, .tooltip th {
   background: url(/images/tooltip.png);
   font-family: Verdana,open sans,Arial,helvetica neue,Helvetica,sans-serif;

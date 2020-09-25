@@ -44,6 +44,8 @@ block main_board
                     td(style="text-align: left;padding-left:20px;")
                       a(href=`/problem/${topic.pid.pid}`)= `#${topic.pid.pid} ${topic.pid.title}`
                   td(style="text-align: left;padding-left:20px;")
+                    - if(topic.top)
+                      button.war3-default-btn.btn-blizzard 置顶
                     a(href=`/bbs/${topic._id}`)= topic.title
                   td(style="width:88px;")= `${topic.reply_count}/${topic.visit_count}`
                   td(style="width:48px;")= topic.up_count
