@@ -3,6 +3,7 @@ include ../_partical/card/card.pug
 include ../_partical/component/tooltip.pug
 include ../_partical/component/icon-avatar.pug
 include ../_partical/component/avatar_with_tooltip.pug
+include ../_partical/component/layui-icon.pug
 
 block content
   include ../_partical/nav/nav-panel.pug
@@ -14,8 +15,23 @@ block content
         div.main
           block main
             +Card
-              - var baseUrl ='/submissions?page='
-              include ../_partical/component/pagenation.pug
+              .filter-container
+                p= query.pid
+                div.filter-item
+                  label 题目: 
+                  input#filter-pid(type='number' name='pid' value= query.pid ? query.pid : "")
+                div.filter-item
+                  label 提交者: 
+                  input#filter-realname(type='text' name='realname' value= query.realname ? query.realname : "")
+                div.filter-item.last
+                  button.war3-default-btn.btn-blizzard#filter-search
+                    +Licon("search")
+                    |
+                    | 查询
+                  button.war3Button.war3-default-btn.btn-blizzard#filter-selfsub
+                    +Licon("user")
+                    |
+                    | 我的提交
               .problemList
                 table.tableList
                   //-colgroup
@@ -53,9 +69,31 @@ block content
                         td(style="width:180px;")= sub.create_at_format
 
               .div(style="margin-top:30px;")
+                - var baseUrl ='/submissions?'+(queryUrl.length ? queryUrl+'&' : '' )+'page='
                 include ../_partical/component/pagenation.pug
   include ../_partical/footer/footer.pug
 block layout_app_script
   script.
     layui.use('element')
 block script
+  script.
+    var filter_selfsub = $('#filter-selfsub')
+    var filter_search= $('#filter-search')
+
+    filter_selfsub.click( function(){
+      $('#filter-realname').attr("value","#{realname}")
+      filter_search.click()
+    })
+    filter_search.click( ()=>{
+
+      let query = {}
+      let realname =  $('#filter-realname').val()
+      if( realname !== "") query.realname = realname
+
+      let pid =  $('#filter-pid').val()
+      if( pid !== "") query.pid = pid
+
+      let queryUrl = new URLSearchParams(query).toString();
+
+      window.location = '/submissions' + (queryUrl === "" ? "" : '?'+queryUrl);
+    })

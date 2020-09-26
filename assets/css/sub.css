@@ -14,3 +14,26 @@
       .code-container a.code-copy-button:active .tooltip .q {
         color: #665400 !important;
         text-shadow: 0px 1px 0px #2f6627; }
+
+.filter-container {
+  margin: 20px 0; }
+  .filter-container input {
+    box-shadow: none;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #fff;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 10px 0 10px;
+    width: 100px; }
+  .filter-container input::-webkit-outer-spin-button,
+  .filter-container input::-webkit-inner-spin-button {
+    -webkit-appearance: none; }
+  .filter-container input[type="number"] {
+    -moz-appearance: textfield; }
+  .filter-container .filter-item {
+    display: inline-block;
+    margin-left: 20px; }
+  .filter-container .filter-item.last {
+    float: right; }
