@@ -48,6 +48,6 @@ block main_board
                       button.war3-default-btn.btn-blizzard 置顶
                     a(href=`/bbs/${topic._id}`)= topic.title
                   td(style="width:88px;")= `${topic.reply_count}/${topic.visit_count}`
-                  td(style="width:48px;")= topic.up_count
+                  td(style="width:48px;")= topic.ups_count
                   td(style="width:88px;")= topic.last_reply_at_human
       include ../../_partical/component/pagenation.pug
